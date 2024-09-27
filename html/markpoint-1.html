@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <title>Markpoint 1 AND 2: Save to Accounts Receivable Payment Record &mdash; TAS Posting  documentation</title>
+    
+    <link rel="stylesheet" type="text/css" href="_static/dist/fontawesome.css" />
+      <link rel="stylesheet" type="text/css" href="_static/dist/theme.css?v=ea6a6c20" />
+            <link rel="index" title="Index" href="genindex.html" />
+            <link rel="search" title="Search" href="search.html" />
+            <link rel="top" title="TAS Posting  documentation" href="#" />
+            <link rel="next" title="Markpoint 3: Save to Accounts Receivable and Check Account Register" href="markpoint-3.html" />
+            <link rel="prev" title="Pre-validation SQL Procedures" href="pre-valiation.html" />
+    </head>
+<body>
+    <script type="text/javascript" src="_static/dist/blocking.js"></script>
+    <header class="container-fluid bg-primary">
+        <a class="btn btn-sm btn-light skip-to-content-link" href="#main">Skip to content</a>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-dark font-weight-bold">
+                    <a href="index.html"
+                        title="Wagtail"
+                        class="logo navbar-brand"
+                    >
+                        <img src="_static/img/wagtail-logo-new.svg" width="45" height="59" alt="Wagtail"
+                            class="logo-img"
+                        />
+                        ADV 5.1 Posting Migration
+                    </a>
+                
+                
+                <button class="navbar-toggler btn btn-primary d-lg-none" type="button" data-toggle="collapse" data-target="#collapseSidebar" aria-expanded="false" aria-controls="collapseExample">
+                    <span class="navbar-toggler-icon"></span>
+                    <span class="sr-only">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-12 col-lg-3 sidebar-container">
+                <div id="collapseSidebar" class="collapse sticky-top d-lg-block pt-5 pr-lg-4">
+<div id="searchbox" class="searchbox mb-6 px-1" role="search">
+    <form id="search-form" action="search.html" autocomplete="off" method="get" role="search">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text border-right-0 bg-white py-3 pl-3 pr-2"><span class="fas fa-search"></span></div>
+            </div>
+            <input class="form-control py-3 pr-3 pl-1 h-100 border-left-0" type="search" name="q" placeholder="Search documentation" aria-label="Search documentation" id="searchinput" />
+        </div>
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+    </form>
+</div><div class="site-toc">
+    <nav class="toc mt-3" aria-label="Main menu">
+        <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="post_so.html">Post_SO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pre-valiation.html">Validation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Mark Point 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-3.html">Mark Point 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-4.html">Mark Point 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-5.html">Mark Point 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-6.html">Mark Point 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-7.html">Mark Point 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-8.html">Mark Point 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-9.html">Mark Point 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-10.html">Mark Point 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-11.html">Mark Point 11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-12.html">Mark Point 12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-13.html">Mark Point 13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-14.html">Mark Point 14</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-15.html">Mark Point 15</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-16.html">Mark Point 16</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-17.html">Mark Point 17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-18.html">Mark Point 18</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-19.html">Mark Point 19</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-20.html">Mark Point 20</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-23.html">Mark Point 23</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-24.html">Mark Point 24</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-25.html">Mark Point 25</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-26.html">Mark Point 26</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="post_to_gl2.html">post_to_gl2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="all_tables.html">All Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint.html">Markpoint</a></li>
+<li class="toctree-l1"><a class="reference internal" href="errorlog.html">ErrorLog</a></li>
+</ul>
+
+    </nav>
+    <template data-toggle-item-template>
+        <button class="btn btn-sm btn-link toctree-expand" type="button">
+            <span class="sr-only">Toggle menu contents</span>
+        </button>
+    </template>
+</div>
+                    <div class="d-lg-none border-bottom">
+                        
+                    </div>
+                </div>
+            </aside>
+            <div class="col-12 col-lg-9 pt-5">
+                <header class="row align-items-baseline">
+                    <div class="col">
+                        <nav aria-label="breadcrumb">
+    <ol class="breadcrumb m-0 p-0 bg-transparent">
+        <li class="breadcrumb-item"><a href="index.html">Docs</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Markpoint 1 AND 2: Save to Accounts Receivable Payment Record</li>
+    </ol>
+</nav>
+                    </div>
+                    <div class="col-sm-12 col-lg-auto mt-3 mt-lg-3">
+                        <noscript>
+                            <p>JavaScript is required to toggle light/dark mode..</p>
+                        </noscript>
+                        <button id="wagtail-theme" class="btn btn-sm btn-light text-decoration-none" type="button">
+                            <span class="dark-only"><i class="fas fa-sun"></i> Light mode</span>
+                            <span class="light-only"><i class="fas fa-moon"></i> Dark mode</span>
+                        </button>
+    <a class="btn btn-sm btn-light text-decoration-none" href="https://github.com/wagtail/sphinx_wagtail_theme/blob/main/docs/markpoint-1.md" rel="nofollow">
+        <span class="btn-icon"><span class="fab fa-github"></span></span>
+        <span class="btn-text">Edit on GitHub</span>
+    </a>
+    <a class="btn btn-sm btn-light text-decoration-none" href="_sources/markpoint-1.md.txt" rel="nofollow">
+        <span class="btn-icon"><span class="fas fa-code"></span></span>
+        <span class="btn-text">View source</span>
+    </a>
+                        
+                    </div>
+                </header>
+                <div class="row" >
+                    <div class="col-12">
+                        <hr class="w-100 my-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-lg-9 order-last order-lg-first rst-content">
+                        <main role="main" id="main">
+    <section id="markpoint-1-and-2-save-to-accounts-receivable-payment-record">
+<h1>Markpoint 1 AND 2: Save to Accounts Receivable Payment Record<a class="headerlink" href="#markpoint-1-and-2-save-to-accounts-receivable-payment-record" title="Link to this heading">¶</a></h1>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<p>This function updates the Accounts Receivable (AR) payment record for a specific invoice. It involves validating the customer, updating payment information, adjusting customer balances, and managing RMA-related records.</p>
+<ul class="simple">
+<li><p>Markpoint 1: related to saving the accounts receivable record</p></li>
+<li><p>Markpoint 2: updating the customer record) are intertwined in the legacy code. To clarify</p></li>
+</ul>
+</section>
+<section id="breakdown-of-legacy-logic">
+<h2>Breakdown of Legacy Logic:<a class="headerlink" href="#breakdown-of-legacy-logic" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Customer Lookup and Parent/Child Handling</strong>:</p>
+<ul class="simple">
+<li><p>It looks up the customer (<code class="docutils literal notranslate"><span class="pre">BKAR_INV_CUSCOD</span></code> from <code class="docutils literal notranslate"><span class="pre">BKARINV</span></code>) and handles scenarios where the shipping customer (<code class="docutils literal notranslate"><span class="pre">BKAR_INV_SHPCOD</span></code>) is different from the billing customer (indicating a parent/child relationship).</p></li>
+</ul>
+</li>
+<li><p><strong>RMA Record Processing</strong>:</p>
+<ul class="simple">
+<li><p>If the invoice belongs to an RMA (<code class="docutils literal notranslate"><span class="pre">inv_group</span> <span class="pre">==</span> <span class="pre">'RM'</span></code>), the system attempts to find the related RMA history records.</p></li>
+</ul>
+</li>
+<li><p><strong>Points Assignment</strong>:</p>
+<ul class="simple">
+<li><p>If relevant, the system assigns customer points based on a transaction history lookup.</p></li>
+</ul>
+</li>
+<li><p><strong>Accounts Receivable Update</strong>:</p>
+<ul class="simple">
+<li><p>Updates the AR record, adjusting the outstanding invoice or credit balances based on the invoice total (<code class="docutils literal notranslate"><span class="pre">BKAR_INV_TOTAL</span></code>).</p></li>
+</ul>
+</li>
+<li><p><strong>Customer Sales History Update</strong>:</p>
+<ul class="simple">
+<li><p>Sales history for the customer or parent customer (<code class="docutils literal notranslate"><span class="pre">BKARPR</span></code>) is updated based on whether the customer is a parent or a child account.</p></li>
+</ul>
+</li>
+<li><p><strong>Markpoints</strong>:</p>
+<ul class="simple">
+<li><p>Two markpoints are called:</p>
+<ul>
+<li><p><strong>Markpoint 1</strong>: For saving the accounts receivable data.</p></li>
+<li><p><strong>Markpoint 2</strong>: For saving customer data.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="sql-implementation-plan">
+<h2>SQL Implementation Plan<a class="headerlink" href="#sql-implementation-plan" title="Link to this heading">¶</a></h2>
+<p>We will consolidate the actions into one SQL function that performs the following steps:</p>
+<ol class="arabic simple">
+<li><p><strong>Customer and Parent/Child Handling</strong>.</p></li>
+<li><p><strong>RMA Processing</strong> (if applicable).</p></li>
+<li><p><strong>Points Assignment</strong> (if applicable).</p></li>
+<li><p><strong>Accounts Receivable Update</strong>.</p></li>
+<li><p><strong>Customer Sales History Update</strong>.</p></li>
+<li><p><strong>Markpoint 1 and Markpoint 2 Execution</strong>.</p></li>
+</ol>
+</section>
+<section id="sql-function">
+<h2>SQL Function<a class="headerlink" href="#sql-function" title="Link to this heading">¶</a></h2>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">PROCEDURE</span><span class="w"> </span><span class="n">markpoint_1_and_2_SaveARAndCustomerRecord</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="o">@</span><span class="n">invoiceNum</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="k">AS</span>
+<span class="k">BEGIN</span>
+<span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">custCode</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">shipCode</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">is_parent</span><span class="w"> </span><span class="nb">BIT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">invDate</span><span class="w"> </span><span class="nb">DATE</span>
+<span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">total</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">pointsRate</span><span class="w"> </span><span class="nb">FLOAT</span>
+
+<span class="w">    </span><span class="c1">-- Step 1: Customer Lookup</span>
+<span class="w">    </span><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">custCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">BKAR_INV_CUSCOD</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">BKARINV</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKAR_INV_NUM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">invoiceNum</span><span class="p">)</span>
+<span class="w">    </span><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">shipCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">BKAR_INV_SHPCOD</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">BKARINV</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKAR_INV_NUM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">invoiceNum</span><span class="p">)</span>
+<span class="w">    </span><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">invDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">BKAR_INV_INVDTE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">BKARINV</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKAR_INV_NUM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">invoiceNum</span><span class="p">)</span>
+<span class="w">    </span><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">BKAR_INV_TOTAL</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">BKARINV</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKAR_INV_NUM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">invoiceNum</span><span class="p">)</span>
+
+<span class="w">    </span><span class="k">IF</span><span class="w"> </span><span class="o">@</span><span class="n">custCode</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span>
+<span class="w">    </span><span class="k">BEGIN</span>
+<span class="w">        </span><span class="c1">-- Log error if customer is not found</span>
+<span class="w">        </span><span class="n">RAISERROR</span><span class="p">(</span><span class="s1">&#39;Customer for Sales Order not found&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">        </span><span class="k">RETURN</span>
+<span class="w">    </span><span class="k">END</span>
+
+<span class="w">    </span><span class="c1">-- Step 2: Parent/Child Handling</span>
+<span class="w">    </span><span class="k">IF</span><span class="w"> </span><span class="o">@</span><span class="n">shipCode</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="o">@</span><span class="n">shipCode</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="o">@</span><span class="n">custCode</span>
+<span class="w">    </span><span class="k">BEGIN</span>
+<span class="w">        </span><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">            </span><span class="k">SELECT</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">BKARPR</span>
+<span class="w">            </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKAR_PR_CSTCOD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">shipCode</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">BKAR_PR_PARENT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">custCode</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">        </span><span class="k">BEGIN</span>
+<span class="w">            </span><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">is_parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">        </span><span class="k">END</span>
+
+<span class="w">        </span><span class="c1">-- Update points_class and points_cust for shipping customer</span>
+<span class="w">        </span><span class="k">UPDATE</span><span class="w"> </span><span class="n">BKARINV</span>
+<span class="w">        </span><span class="k">SET</span><span class="w"> </span><span class="n">BKAR_CLASS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">BKAR_CLASS</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">BKARCUST</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKAR_CUSTCODE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">shipCode</span><span class="p">)</span>
+<span class="w">        </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKAR_INV_NUM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">invoiceNum</span>
+<span class="w">    </span><span class="k">END</span>
+
+<span class="w">    </span><span class="c1">-- Step 3: RMA Handling (if applicable)</span>
+<span class="w">    </span><span class="k">IF</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">inv_group</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">BKARINV</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKAR_INV_NUM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">invoiceNum</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;RM&#39;</span>
+<span class="w">    </span><span class="k">BEGIN</span>
+<span class="w">        </span><span class="c1">-- Check RMA History by invoice number</span>
+<span class="w">        </span><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">            </span><span class="k">SELECT</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">BKRMAHST</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKRMA_H_AINVNUM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">invoiceNum</span>
+<span class="w">        </span><span class="p">)</span>
+<span class="w">        </span><span class="k">BEGIN</span>
+<span class="w">            </span><span class="k">UPDATE</span><span class="w"> </span><span class="n">BKRMAHST</span>
+<span class="w">            </span><span class="k">SET</span><span class="w"> </span><span class="n">BKRMA_H_AINVNUM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">invoiceNum</span><span class="p">,</span>
+<span class="w">                </span><span class="n">BKRMA_H_AINVDTE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">invDate</span>
+<span class="w">            </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKRMA_H_AINVNUM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">invoiceNum</span>
+<span class="w">              </span><span class="k">AND</span><span class="w"> </span><span class="o">@</span><span class="n">invDate</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">BKRMA_H_RDATE</span>
+<span class="w">        </span><span class="k">END</span>
+<span class="w">        </span><span class="k">ELSE</span>
+<span class="w">        </span><span class="k">BEGIN</span>
+<span class="w">            </span><span class="c1">-- Check by Sales Order number if not found by invoice number</span>
+<span class="w">            </span><span class="k">UPDATE</span><span class="w"> </span><span class="n">BKRMAHST</span>
+<span class="w">            </span><span class="k">SET</span><span class="w"> </span><span class="n">BKRMA_H_AINVNUM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">invoiceNum</span><span class="p">,</span>
+<span class="w">                </span><span class="n">BKRMA_H_AINVDTE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">invDate</span>
+<span class="w">            </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKRMA_H_ASONUM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">BKAR_INV_SONUM</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">BKARINV</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKAR_INV_NUM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">invoiceNum</span><span class="p">)</span>
+<span class="w">        </span><span class="k">END</span>
+<span class="w">    </span><span class="k">END</span>
+
+<span class="w">    </span><span class="c1">-- Step 4: Points Transaction Handling (if applicable)</span>
+<span class="w">    </span><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">        </span><span class="k">FROM</span><span class="w"> </span><span class="n">BKPTSHST</span>
+<span class="w">        </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKPTSHST_TRNSNM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">BKRMA_H_OINVNUM</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">BKRMAHST</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKRMA_H_AINVNUM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">invoiceNum</span><span class="p">)</span>
+<span class="w">          </span><span class="k">AND</span><span class="w"> </span><span class="n">BKPTSHST_DATE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">invDate</span>
+<span class="w">          </span><span class="k">AND</span><span class="w"> </span><span class="n">BKPTSHST_QTY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="k">BEGIN</span>
+<span class="w">        </span><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">pointsRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">BKPTSHST_RATE</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">BKPTSHST</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKPTSHST_TRNSNM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">BKRMA_H_OINVNUM</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">BKRMAHST</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKRMA_H_AINVNUM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">invoiceNum</span><span class="p">))</span>
+<span class="w">    </span><span class="k">END</span>
+
+<span class="w">    </span><span class="c1">-- Step 5: Update Accounts Receivable</span>
+<span class="w">    </span><span class="k">IF</span><span class="w"> </span><span class="o">@</span><span class="n">total</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="k">BEGIN</span>
+<span class="w">        </span><span class="k">UPDATE</span><span class="w"> </span><span class="n">BKARINV</span>
+<span class="w">        </span><span class="k">SET</span><span class="w"> </span><span class="n">BKAR_OUTINV</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BKAR_OUTINV</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="o">@</span><span class="n">total</span>
+<span class="w">        </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKAR_INV_NUM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">invoiceNum</span>
+<span class="w">    </span><span class="k">END</span>
+<span class="w">    </span><span class="k">ELSE</span>
+<span class="w">    </span><span class="k">BEGIN</span>
+<span class="w">        </span><span class="k">UPDATE</span><span class="w"> </span><span class="n">BKARINV</span>
+<span class="w">        </span><span class="k">SET</span><span class="w"> </span><span class="n">BKAR_OUT_CREDIT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BKAR_OUT_CREDIT</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="o">@</span><span class="n">total</span>
+<span class="w">        </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKAR_INV_NUM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">invoiceNum</span>
+<span class="w">    </span><span class="k">END</span>
+
+<span class="w">    </span><span class="c1">-- Step 6: Update Sales History</span>
+<span class="w">    </span><span class="k">UPDATE</span><span class="w"> </span><span class="n">BKARINV</span>
+<span class="w">    </span><span class="k">SET</span><span class="w"> </span><span class="n">BKAR_LASTSALE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">invDate</span><span class="p">,</span>
+<span class="w">        </span><span class="n">BKAR_GROSS_YTD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BKAR_GROSS_YTD</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">BKAR_INV_SUBTOT</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">BKARINV</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKAR_INV_NUM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">invoiceNum</span><span class="p">),</span>
+<span class="w">        </span><span class="n">BKAR_COGS_YTD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BKAR_COGS_YTD</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">BKAR_INV_COGS</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">BKARINV</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKAR_INV_NUM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">invoiceNum</span><span class="p">)</span>
+<span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKAR_INV_NUM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">invoiceNum</span>
+
+<span class="w">    </span><span class="k">IF</span><span class="w"> </span><span class="k">MONTH</span><span class="p">(</span><span class="o">@</span><span class="n">invDate</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">MONTH</span><span class="p">(</span><span class="n">GETDATE</span><span class="p">())</span>
+<span class="w">    </span><span class="k">BEGIN</span>
+<span class="w">        </span><span class="k">UPDATE</span><span class="w"> </span><span class="n">BKARINV</span>
+<span class="w">        </span><span class="k">SET</span><span class="w"> </span><span class="n">BKAR_GROSS_MTD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BKAR_GROSS_MTD</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">BKAR_INV_SUBTOT</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">BKARINV</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKAR_INV_NUM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">invoiceNum</span><span class="p">),</span>
+<span class="w">            </span><span class="n">BKAR_COGS_MTD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BKAR_COGS_MTD</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="k">SELECT</span><span class="w"> </span><span class="n">BKAR_INV_COGS</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">BKARINV</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKAR_INV_NUM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">invoiceNum</span><span class="p">)</span>
+<span class="w">        </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKAR_INV_NUM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">invoiceNum</span>
+<span class="w">    </span><span class="k">END</span>
+
+<span class="w">    </span><span class="c1">-- Step 7: Update Parent/Customer Sales History</span>
+<span class="w">    </span><span class="k">IF</span><span class="w"> </span><span class="o">@</span><span class="n">is_parent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="k">BEGIN</span>
+<span class="w">        </span><span class="k">UPDATE</span><span class="w"> </span><span class="n">BKARPR</span>
+<span class="w">        </span><span class="k">SET</span><span class="w"> </span><span class="n">BKAR_PR_LSALE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">invDate</span>
+<span class="w">        </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKAR_PR_CSTCOD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">shipCode</span>
+<span class="w">    </span><span class="k">END</span>
+<span class="w">    </span><span class="k">ELSE</span>
+<span class="w">    </span><span class="k">BEGIN</span>
+<span class="w">        </span><span class="k">UPDATE</span><span class="w"> </span><span class="n">BKARPR</span>
+<span class="w">        </span><span class="k">SET</span><span class="w"> </span><span class="n">BKAR_PR_LSALE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">invDate</span>
+<span class="w">        </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKAR_PR_CSTCOD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">custCode</span>
+<span class="w">    </span><span class="k">END</span>
+
+<span class="w">    </span><span class="c1">-- Step 8: Markpoint 1 and 2 Execution</span>
+<span class="w">    </span><span class="c1">-- Markpoint 1: Save to Accounts Receivable</span>
+<span class="w">    </span><span class="k">EXEC</span><span class="w"> </span><span class="n">markpoint_1_SaveToARPaymentRecord</span><span class="w"> </span><span class="o">@</span><span class="n">invoiceNum</span>
+
+<span class="w">    </span><span class="c1">-- Markpoint 2: Save to Customer</span>
+<span class="w">    </span><span class="k">EXEC</span><span class="w"> </span><span class="n">markpoint_2_SaveToCustomerRecord</span><span class="w"> </span><span class="o">@</span><span class="n">invoiceNum</span>
+
+<span class="w">    </span><span class="c1">-- Return success</span>
+<span class="w">    </span><span class="k">RETURN</span><span class="w"> </span><span class="mi">0</span>
+<span class="k">END</span>
+<span class="k">GO</span>
+</pre></div>
+</div>
+</section>
+<section id="breakdown-of-actions">
+<h2>Breakdown of Actions:<a class="headerlink" href="#breakdown-of-actions" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Customer and Parent/Child Handling</strong>:</p>
+<ul class="simple">
+<li><p>Lookup the customer (<code class="docutils literal notranslate"><span class="pre">BKAR_INV_CUSCOD</span></code>) from <code class="docutils literal notranslate"><span class="pre">BKARINV</span></code>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">BKAR_INV_SHPCOD</span></code> is different from <code class="docutils literal notranslate"><span class="pre">BKAR_INV_CUSCOD</span></code>, check if it is a child customer. If true, set the parent flag and update <code class="docutils literal notranslate"><span class="pre">points_class</span></code> and <code class="docutils literal notranslate"><span class="pre">points_cust</span></code>.</p></li>
+</ul>
+</li>
+<li><p><strong>RMA Handling</strong>:</p>
+<ul class="simple">
+<li><p>If the invoice is an RMA (<code class="docutils literal notranslate"><span class="pre">inv_group</span> <span class="pre">==</span> <span class="pre">'RM'</span></code>), check and update the <code class="docutils literal notranslate"><span class="pre">BKRMAHST</span></code> record by invoice number or Sales Order number.</p></li>
+</ul>
+</li>
+<li><p><strong>Points Assignment</strong>:</p>
+<ul class="simple">
+<li><p>Assign points by looking up the points transaction in <code class="docutils literal notranslate"><span class="pre">BKPTSHST</span></code> associated with the original RMA invoice.</p></li>
+</ul>
+</li>
+<li><p><strong>Accounts Receivable Update</strong>:</p>
+<ul class="simple">
+<li><p>If the invoice total is positive, increase <code class="docutils literal notranslate"><span class="pre">BKAR_OUTINV</span></code>. If negative, adjust <code class="docutils literal notranslate"><span class="pre">BKAR_OUT_CREDIT</span></code>.</p></li>
+</ul>
+</li>
+<li><p><strong>Sales History Update</strong>:</p>
+<ul class="simple">
+<li><p>Update <code class="docutils literal notranslate"><span class="pre">BKAR_LASTSALE</span></code>, <code class="docutils literal notranslate"><span class="pre">BKAR_GROSS_YTD</span></code>, <code class="docutils literal notranslate"><span class="pre">BKAR_COGS_YTD</span></code>, and month-to-date values if the invoice date falls in the current month.</p></li>
+</ul>
+</li>
+<li><p><strong>Parent/Customer Sales History Update</strong>:</p>
+<ul class="simple">
+<li><p>Update <code class="docutils literal notranslate"><span class="pre">BKAR_PR_LSALE</span></code> for the parent or customer based on the parent-child relationship.</p></li>
+</ul>
+</li>
+<li><p><strong>Markpoint 1 Execution</strong>:</p>
+<ul class="simple">
+<li><p>Save the Accounts Receivable data by calling <code class="docutils literal notranslate"><span class="pre">markpoint_1_SaveToARPaymentRecord</span></code>.</p></li>
+</ul>
+</li>
+<li><p><strong>Markpoint 2 Execution</strong>:</p>
+<ul class="simple">
+<li><p>Save the customer data by calling <code class="docutils literal notranslate"><span class="pre">markpoint_2_SaveToCustomerRecord</span></code>.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="testing">
+<h2>Testing:<a class="headerlink" href="#testing" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li></li>
+</ul>
+</section>
+</section>
+
+</main>
+                        <nav aria-label="Page navigation" class="py-4 my-5 clearfix font-weight-bold border-top">
+    <a class="float-left" href="pre-valiation.html" title="Previous">
+        <span aria-hidden="true">←&nbsp;</span>Pre-validation SQL Procedures
+    </a>
+    <a class="float-right" href="markpoint-3.html" title="Next">
+        Markpoint 3: Save to Accounts Receivable and Check Account Register <span aria-hidden="true">&nbsp;→</span>
+    </a>
+</nav>
+                    </div>
+                    
+                    <nav class="col-12 col-lg-3 pb-4">
+                        <div class="sticky-top toc page-toc" aria-labelledby="page-toc-heading">
+                            <p class="font-weight-bold" id="page-toc-heading">Page contents</p>
+                            <ul>
+<li><a class="reference internal" href="#">Markpoint 1 AND 2: Save to Accounts Receivable Payment Record</a><ul>
+<li><a class="reference internal" href="#summary">Summary</a></li>
+<li><a class="reference internal" href="#breakdown-of-legacy-logic">Breakdown of Legacy Logic:</a></li>
+<li><a class="reference internal" href="#sql-implementation-plan">SQL Implementation Plan</a></li>
+<li><a class="reference internal" href="#sql-function">SQL Function</a></li>
+<li><a class="reference internal" href="#breakdown-of-actions">Breakdown of Actions:</a></li>
+<li><a class="reference internal" href="#testing">Testing:</a></li>
+</ul>
+</li>
+</ul>
+
+                        </div>
+                    </nav>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid bg-primary text-light">
+        <div class="container">
+            <div class="row">
+        <div class="col p-4">
+            
+                <nav aria-label="Footer">
+                    <ul class="nav justify-content-center mb-2">
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/features/">Features</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/about-wagtail/"> About Wagtail</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/services/"> Services</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/blog/"> Blog</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/packages/"> Packages</a></li>
+                        
+                            
+                            
+                            <li class="nav-item"><a class="nav-link text-light"  href="https://wagtail.org/developers/"> Developers</a></li>
+                        
+                    </ul>
+                </nav>
+            
+            <div class="text-center">
+                <p style="display: none">
+                    <a class="text-light" href="https://github.com/wagtail/sphinx_wagtail_theme" rel="nofollow" target="_blank">
+                        Wagtail Sphinx Theme 6.3.0
+                    </a>
+                </p>
+            </div>
+            <div class="text-center">
+                    &copy; Copyright 2024, Chris Watkins
+            </div>
+        </div>
+    </div>
+        </div>
+    </footer>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script type="text/javascript" src="_static/dist/theme.js"></script>
+        <script type="text/javascript" src="_static/dist/vendor.js"></script>
+        <script type="text/javascript" src="_static/searchtools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function() { Search.loadIndex("searchindex.js"); });
+        </script>
+        <script type="text/javascript" id="searchindexloader"></script>
+    </body>
+</html>
