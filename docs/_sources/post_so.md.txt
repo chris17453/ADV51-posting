@@ -5,25 +5,7 @@
 
 The `post_so` stored procedure is designed to process sales orders by performing a series of validations, logging mark points, handling transactions with enhanced error logging, and updating relevant records across multiple tables. This procedure ensures data integrity and consistency by implementing idempotency checks and comprehensive error handling mechanisms.
 
-## Table of Contents
 
-- [Summary](#summary)
-- [Description](#description)
-- [Prerequisites](#prerequisites)
-- [Parameters](#parameters)
-- [Procedure Steps](#procedure-steps)
-  - [1. Parameter Validation](#1-parameter-validation)
-  - [2. Transaction Management](#2-transaction-management)
-  - [3. Idempotency Check](#3-idempotency-check)
-  - [4. Pre-validation Steps](#4-pre-validation-steps)
-  - [5. Mark Point Header Routines](#5-mark-point-header-routines)
-  - [6. Mark Point Per Invoice Line Item Processing](#6-mark-point-per-invoice-line-item-processing)
-  - [7. Mark Point Post-Invoice Level Processing](#7-mark-point-post-invoice-level-processing)
-  - [8. Finalization](#8-finalization)
-- [Error Handling](#error-handling)
-- [Dependencies](#dependencies)
-- [Example Usage](#example-usage)
-- [SQL Code](#sql-code)
 
 ## SQL Code
 Below is the updated `post_so` stored procedure incorporating the required changes:

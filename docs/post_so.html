@@ -146,31 +146,6 @@
 <h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">post_so</span></code> stored procedure is designed to process sales orders by performing a series of validations, logging mark points, handling transactions with enhanced error logging, and updating relevant records across multiple tables. This procedure ensures data integrity and consistency by implementing idempotency checks and comprehensive error handling mechanisms.</p>
 </section>
-<section id="table-of-contents">
-<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference internal" href="#summary"><span class="xref myst">Summary</span></a></p></li>
-<li><p><a class="reference internal" href="#description"><span class="xref myst">Description</span></a></p></li>
-<li><p><a class="reference internal" href="#prerequisites"><span class="xref myst">Prerequisites</span></a></p></li>
-<li><p><a class="reference internal" href="#parameters"><span class="xref myst">Parameters</span></a></p></li>
-<li><p><a class="reference internal" href="#procedure-steps"><span class="xref myst">Procedure Steps</span></a></p>
-<ul>
-<li><p><a class="reference internal" href="#1-parameter-validation"><span class="xref myst">1. Parameter Validation</span></a></p></li>
-<li><p><a class="reference internal" href="#2-transaction-management"><span class="xref myst">2. Transaction Management</span></a></p></li>
-<li><p><a class="reference internal" href="#3-idempotency-check"><span class="xref myst">3. Idempotency Check</span></a></p></li>
-<li><p><a class="reference internal" href="#4-pre-validation-steps"><span class="xref myst">4. Pre-validation Steps</span></a></p></li>
-<li><p><a class="reference internal" href="#5-mark-point-header-routines"><span class="xref myst">5. Mark Point Header Routines</span></a></p></li>
-<li><p><a class="reference internal" href="#6-mark-point-per-invoice-line-item-processing"><span class="xref myst">6. Mark Point Per Invoice Line Item Processing</span></a></p></li>
-<li><p><a class="reference internal" href="#7-mark-point-post-invoice-level-processing"><span class="xref myst">7. Mark Point Post-Invoice Level Processing</span></a></p></li>
-<li><p><a class="reference internal" href="#8-finalization"><span class="xref myst">8. Finalization</span></a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#error-handling"><span class="xref myst">Error Handling</span></a></p></li>
-<li><p><a class="reference internal" href="#dependencies"><span class="xref myst">Dependencies</span></a></p></li>
-<li><p><a class="reference internal" href="#example-usage"><span class="xref myst">Example Usage</span></a></p></li>
-<li><p><a class="reference internal" href="#sql-code"><span class="xref myst">SQL Code</span></a></p></li>
-</ul>
-</section>
 <section id="sql-code">
 <h2>SQL Code<a class="headerlink" href="#sql-code" title="Link to this heading">¶</a></h2>
 <p>Below is the updated <code class="docutils literal notranslate"><span class="pre">post_so</span></code> stored procedure incorporating the required changes:</p>
@@ -744,7 +719,6 @@
                             <ul>
 <li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">post_so</span></code> Stored Procedure Documentation</a><ul>
 <li><a class="reference internal" href="#summary">Summary</a></li>
-<li><a class="reference internal" href="#table-of-contents">Table of Contents</a></li>
 <li><a class="reference internal" href="#sql-code">SQL Code</a></li>
 <li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
