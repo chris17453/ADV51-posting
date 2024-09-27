@@ -19,3 +19,8 @@ help:
 %: Makefile
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 	mv html docs
+	touch docs/.nojekyll
+	git add -A
+	git commit -m 'theme'
+	git push
+
