@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Markpoint 25: Transfer Invoice to Historical Table &mdash; TAS Posting  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Markpoint 26: Delete or Update Invoice Header" href="markpoint-26.html" />
+    <link rel="prev" title="Markpoint 24: Process Invoice and Update Sales" href="markpoint-24.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            TAS Posting
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="post_so.html">Post_SO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pre-valiation.html">Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-1.html">Mark Point 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-3.html">Mark Point 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-4.html">Mark Point 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-5.html">Mark Point 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-6.html">Mark Point 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-7.html">Mark Point 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-8.html">Mark Point 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-9.html">Mark Point 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-10.html">Mark Point 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-11.html">Mark Point 11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-12.html">Mark Point 12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-13.html">Mark Point 13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-14.html">Mark Point 14</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-15.html">Mark Point 15</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-16.html">Mark Point 16</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-17.html">Mark Point 17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-18.html">Mark Point 18</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-19.html">Mark Point 19</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-20.html">Mark Point 20</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-23.html">Mark Point 23</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-24.html">Mark Point 24</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Mark Point 25</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-26.html">Mark Point 26</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="post_to_gl2.html">POST_TO_GL2 post_to_gl2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="all_tables.html">All Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint.html">Markpoint</a></li>
+<li class="toctree-l1"><a class="reference internal" href="errorlog.html">ErrorLog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">TAS Posting</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Markpoint 25: Transfer Invoice to Historical Table</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/markpoint-25.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="markpoint-25-transfer-invoice-to-historical-table">
+<h1>Markpoint 25: Transfer Invoice to Historical Table<a class="headerlink" href="#markpoint-25-transfer-invoice-to-historical-table" title="Link to this heading"></a></h1>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading"></a></h2>
+<p>This function saves the invoice to the historical invoice table (<code class="docutils literal notranslate"><span class="pre">BKARHINV</span></code>). If the save operation fails, it raises an error message and stops further processing. If successful, it verifies the save operation and continues.</p>
+</section>
+<section id="sql-function">
+<h2>SQL Function<a class="headerlink" href="#sql-function" title="Link to this heading"></a></h2>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">PROCEDURE</span><span class="w"> </span><span class="n">markpoint_25_TransferInvoiceToHistorical</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="o">@</span><span class="n">invoiceNum</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span>
+<span class="w">    </span><span class="o">@</span><span class="n">actualNL</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="k">AS</span>
+<span class="k">BEGIN</span>
+<span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">invHolder</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">invoiceNum</span>
+<span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">getOut</span><span class="w"> </span><span class="nb">BIT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">errorMsg</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">-- Transfer Invoice to BKARHINV, update actual NL</span>
+<span class="w">    </span><span class="k">UPDATE</span><span class="w"> </span><span class="n">BKARHINV</span>
+<span class="w">    </span><span class="k">SET</span><span class="w"> </span><span class="n">BKAR_INV_NL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">actualNL</span>
+<span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKAR_INV_NUM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">invoiceNum</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">-- Markpoint 25 before saving</span>
+<span class="w">    </span><span class="k">EXEC</span><span class="w"> </span><span class="n">markpoint</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">invoiceNum</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">-- Save the changes in BKARHINV</span>
+<span class="w">    </span><span class="k">IF</span><span class="w"> </span><span class="o">@@</span><span class="n">ROWCOUNT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="k">BEGIN</span>
+<span class="w">        </span><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">errorMsg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;BKSOG file error occurred saving to BKARHINV. Posting process will not continue. Please report this exact error message to IT.&#39;</span><span class="p">;</span>
+<span class="w">        </span><span class="n">RAISERROR</span><span class="p">(</span><span class="o">@</span><span class="n">errorMsg</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">        </span><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">getOut</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="k">END</span>
+<span class="w">    </span><span class="k">ELSE</span>
+<span class="w">    </span><span class="k">BEGIN</span>
+<span class="w">        </span><span class="c1">-- Verify if the invoice was correctly saved to BKARHINV</span>
+<span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span>
+<span class="w">        </span><span class="k">FROM</span><span class="w"> </span><span class="n">BKARHINV</span><span class="w"> </span>
+<span class="w">        </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKAR_INV_NUM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">invoiceNum</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">IF</span><span class="w"> </span><span class="o">@@</span><span class="n">ROWCOUNT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">        </span><span class="k">BEGIN</span>
+<span class="w">            </span><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">errorMsg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;BKSOG Invoice number &#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="o">@</span><span class="n">invHolder</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s1">&#39; did not save to BKARHINV. Please report this exact error message to IT.&#39;</span><span class="p">;</span>
+<span class="w">            </span><span class="n">RAISERROR</span><span class="p">(</span><span class="o">@</span><span class="n">errorMsg</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">        </span><span class="k">END</span>
+<span class="w">    </span><span class="k">END</span>
+
+<span class="w">    </span><span class="c1">-- Markpoint 25 after saving</span>
+<span class="w">    </span><span class="k">EXEC</span><span class="w"> </span><span class="n">markpoint</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">invoiceNum</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">RETURN</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">END</span>
+<span class="k">GO</span>
+</pre></div>
+</div>
+</section>
+<section id="breakdown-of-actions">
+<h2>Breakdown of Actions:<a class="headerlink" href="#breakdown-of-actions" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Transfer Invoice to Historical Table</strong>:</p>
+<ul class="simple">
+<li><p>The function updates the <code class="docutils literal notranslate"><span class="pre">BKAR_INV_NL</span></code> field in the historical invoice table (<code class="docutils literal notranslate"><span class="pre">BKARHINV</span></code>) for the given invoice number, using the provided actual number line (<code class="docutils literal notranslate"><span class="pre">&#64;actualNL</span></code>).</p></li>
+</ul>
+</li>
+<li><p><strong>Markpoint 25 Execution</strong>:</p>
+<ul class="simple">
+<li><p>The system executes <code class="docutils literal notranslate"><span class="pre">markpoint_25_SaveToHistory</span></code> both before and after saving the invoice to track the update progress.</p></li>
+</ul>
+</li>
+<li><p><strong>Save Operation and Error Handling</strong>:</p>
+<ul class="simple">
+<li><p><strong>Condition</strong>: If the <code class="docutils literal notranslate"><span class="pre">UPDATE</span></code> statement does not affect any rows, the function raises an error, stating that the invoice was not saved to <code class="docutils literal notranslate"><span class="pre">BKARHINV</span></code>.</p></li>
+<li><p>If the save operation fails, the function halts further processing and raises an error message instructing the user to report the issue to IT.</p></li>
+</ul>
+</li>
+<li><p><strong>Verification of Save</strong>:</p>
+<ul class="simple">
+<li><p><strong>Condition</strong>: The function performs a <code class="docutils literal notranslate"><span class="pre">COUNT</span></code> query to ensure that the invoice was correctly saved to the <code class="docutils literal notranslate"><span class="pre">BKARHINV</span></code> table. If not, it raises another error, specifying that the invoice was not saved and instructing the user to report the issue.</p></li>
+</ul>
+</li>
+<li><p><strong>Lock Handling</strong>:</p>
+<ul class="simple">
+<li><p>If the <code class="docutils literal notranslate"><span class="pre">post_nolock</span></code> flag is not set (<code class="docutils literal notranslate"><span class="pre">post_nolock</span> <span class="pre">=</span> <span class="pre">0</span></code>), the function clears buffers and exits without completing the post.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="error-handling">
+<h2>Error Handling:<a class="headerlink" href="#error-handling" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>If the save operation fails or the invoice does not save correctly to the historical table (<code class="docutils literal notranslate"><span class="pre">BKARHINV</span></code>), an error message is raised and the process halts. The user is instructed to report the error to IT with the exact error message.</p></li>
+</ul>
+</section>
+<section id="testing">
+<h2>Testing:<a class="headerlink" href="#testing" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Test Successful Invoice Transfer</strong>:</p>
+<ul class="simple">
+<li><p>Create test cases where an invoice is successfully transferred to the historical table (<code class="docutils literal notranslate"><span class="pre">BKARHINV</span></code>). Ensure that the function updates the <code class="docutils literal notranslate"><span class="pre">BKAR_INV_NL</span></code> field and correctly saves the invoice.</p></li>
+</ul>
+</li>
+<li><p><strong>Test Failed Save Operation</strong>:</p>
+<ul class="simple">
+<li><p>Create test cases where the <code class="docutils literal notranslate"><span class="pre">UPDATE</span></code> statement does not succeed (e.g., when the invoice does not exist). Ensure that the function raises an appropriate error message.</p></li>
+</ul>
+</li>
+<li><p><strong>Test Verification of Save</strong>:</p>
+<ul class="simple">
+<li><p>Create test cases where the invoice is not found in <code class="docutils literal notranslate"><span class="pre">BKARHINV</span></code> after the save operation. Ensure that the function raises an error message instructing the user to report the issue.</p></li>
+</ul>
+</li>
+<li><p><strong>Test Post Lock Handling</strong>:</p>
+<ul class="simple">
+<li><p>Test scenarios where the <code class="docutils literal notranslate"><span class="pre">post_nolock</span></code> flag is either set or not set to ensure the function correctly handles locking.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="notes">
+<h2>Notes:<a class="headerlink" href="#notes" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Invoice Transfer</strong>: Ensure that the <code class="docutils literal notranslate"><span class="pre">BKARHINV</span></code> table is correctly set up to store the historical invoice data.</p></li>
+<li><p><strong>Markpoint Logging</strong>: The use of <code class="docutils literal notranslate"><span class="pre">markpoint_25_SaveToHistory</span></code> ensures that the save operation is tracked, which can be useful for debugging or auditing purposes.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="markpoint-24.html" class="btn btn-neutral float-left" title="Markpoint 24: Process Invoice and Update Sales" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="markpoint-26.html" class="btn btn-neutral float-right" title="Markpoint 26: Delete or Update Invoice Header" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Chris Watkins.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

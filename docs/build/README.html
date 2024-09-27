@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Invoice Processing Logic &#8212; TAS Posting  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=c058f7c8" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="invoice-processing-logic">
+<h1>Invoice Processing Logic<a class="headerlink" href="#invoice-processing-logic" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>This will process a single RMA or INVOICE</p></li>
+</ul>
+<section id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading">¶</a></h2>
+</section>
+<section id="database">
+<h2>Database<a class="headerlink" href="#database" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="./database.txt">Database</a></p></li>
+</ul>
+</section>
+<section id="posting">
+<h2>POSTING<a class="headerlink" href="#posting" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="post_so.html"><span class="doc">Posting function</span></a> &lt;–Main entrypoint</p></li>
+</ul>
+</section>
+<section id="supporting-functions">
+<h2>Supporting functions<a class="headerlink" href="#supporting-functions" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="markpoint.html"><span class="doc">markpoint</span></a></p></li>
+<li><p><a class="reference internal" href="post_to_gl2.html"><span class="doc">GL Posting fucntion</span></a></p></li>
+<li><p><a class="reference internal" href="pre-valiation.html"><span class="doc">pre-valiation.md</span></a></p></li>
+</ul>
+</section>
+<section id="mark-points-steps-in-posting">
+<h2>Mark Points (Steps in posting)<a class="headerlink" href="#mark-points-steps-in-posting" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>1,2 <a class="reference internal" href="markpoint-1.html"><span class="doc">Update AR/Cust Records</span></a></p></li>
+<li><p>3 <a class="reference internal" href="markpoint-3.html"><span class="doc">Update Inventory Transactions</span></a></p></li>
+<li><p>4 <a class="reference internal" href="markpoint-4.html"><span class="doc">Post to Accounts Receivable or Cash Account</span></a></p></li>
+<li><p>5 <a class="reference internal" href="markpoint-5.html"><span class="doc">Post Freight Charges</span></a></p></li>
+<li><p>6 <a class="reference internal" href="markpoint-6.html"><span class="doc">Post Fuel Charges</span></a></p></li>
+<li><p>7 <a class="reference internal" href="markpoint-7.html"><span class="doc">Update Inventory Location</span></a> PER LINE ITEM</p></li>
+<li><p>8 <a class="reference internal" href="markpoint-8.html"><span class="doc">Save to Inventory Location Warehouse (RMA)</span></a> PER LINE ITEM</p></li>
+<li><p>9 <a class="reference internal" href="markpoint-9.html"><span class="doc">Update Inventory Master</span></a> PER LINE ITEM</p></li>
+<li><p>10 <a class="reference internal" href="markpoint-10.html"><span class="doc">Post to Sales Account</span></a> PER LINE ITEM</p></li>
+<li><p>11 <a class="reference internal" href="markpoint-11.html"><span class="doc">Post Restocking Fee (RMA)</span></a> PER LINE ITEM</p></li>
+<li><p>12 <a class="reference internal" href="markpoint-12.html"><span class="doc">Post Expense</span></a> PER LINE ITEM</p></li>
+<li><p>13 <a class="reference internal" href="markpoint-13.html"><span class="doc">Post Asset</span></a> PER LINE ITEM</p></li>
+<li><p>14 <a class="reference internal" href="markpoint-14.html"><span class="doc">Save to Inventory Transaction</span></a> PER LINE ITEMrr</p></li>
+<li><p>15 <a class="reference internal" href="markpoint-15.html"><span class="doc">Save Inventory Line Item</span></a> PER LINE ITEM</p></li>
+<li><p>16 <a class="reference internal" href="markpoint-16.html"><span class="doc">Move Invoice Line Item to History</span></a> PER LINE ITEM</p></li>
+<li><p>17 <a class="reference internal" href="markpoint-17.html"><span class="doc">Delete or Resave Invoice Line Item</span></a> PER LINE ITEM</p></li>
+<li><p>18 <a class="reference internal" href="markpoint-18.html"><span class="doc">Save to Points History</span></a></p></li>
+<li><p>19 <a class="reference internal" href="markpoint-19.html"><span class="doc">Save to Points Bucket</span></a></p></li>
+<li><p>20 ,21, 22 <a class="reference internal" href="markpoint-20.html"><span class="doc">Update Tax</span></a></p></li>
+<li><p>23 <a class="reference internal" href="markpoint-23.html"><span class="doc">Delete Remaining Invoice Line Items</span></a></p></li>
+<li><p>24 <a class="reference internal" href="markpoint-24.html"><span class="doc">Save to Sales Order Bucket</span></a></p></li>
+<li><p>25 <a class="reference internal" href="markpoint-25.html"><span class="doc">Copy Invoice Header to Historical Invoice</span></a></p></li>
+<li><p>26 <a class="reference internal" href="markpoint-26.html"><span class="doc">Delete or Resave Invoice Header</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">TAS Posting</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="post_so.html">Post_SO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pre-valiation.html">Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-1.html">Mark Point 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-3.html">Mark Point 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-4.html">Mark Point 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-5.html">Mark Point 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-6.html">Mark Point 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-7.html">Mark Point 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-8.html">Mark Point 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-9.html">Mark Point 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-10.html">Mark Point 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-11.html">Mark Point 11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-12.html">Mark Point 12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-13.html">Mark Point 13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-14.html">Mark Point 14</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-15.html">Mark Point 15</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-16.html">Mark Point 16</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-17.html">Mark Point 17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-18.html">Mark Point 18</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-19.html">Mark Point 19</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-20.html">Mark Point 20</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-23.html">Mark Point 23</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-24.html">Mark Point 24</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-25.html">Mark Point 25</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-26.html">Mark Point 26</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="post_to_gl2.html">POST_TO_GL2 post_to_gl2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="all_tables.html">All Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint.html">Markpoint</a></li>
+<li class="toctree-l1"><a class="reference internal" href="errorlog.html">ErrorLog</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, Chris Watkins.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.0.2</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/README.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

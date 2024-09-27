@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Markpoint 3: Save to Accounts Receivable and Check Account Register &mdash; TAS Posting  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Markpoint 4: Post to General Ledger" href="markpoint-4.html" />
+    <link rel="prev" title="Markpoint 1 AND 2: Save to Accounts Receivable Payment Record" href="markpoint-1.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            TAS Posting
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="post_so.html">Post_SO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pre-valiation.html">Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-1.html">Mark Point 1</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Mark Point 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-4.html">Mark Point 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-5.html">Mark Point 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-6.html">Mark Point 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-7.html">Mark Point 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-8.html">Mark Point 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-9.html">Mark Point 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-10.html">Mark Point 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-11.html">Mark Point 11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-12.html">Mark Point 12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-13.html">Mark Point 13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-14.html">Mark Point 14</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-15.html">Mark Point 15</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-16.html">Mark Point 16</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-17.html">Mark Point 17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-18.html">Mark Point 18</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-19.html">Mark Point 19</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-20.html">Mark Point 20</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-23.html">Mark Point 23</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-24.html">Mark Point 24</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-25.html">Mark Point 25</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-26.html">Mark Point 26</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="post_to_gl2.html">POST_TO_GL2 post_to_gl2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="all_tables.html">All Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint.html">Markpoint</a></li>
+<li class="toctree-l1"><a class="reference internal" href="errorlog.html">ErrorLog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">TAS Posting</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Markpoint 3: Save to Accounts Receivable and Check Account Register</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/markpoint-3.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="markpoint-3-save-to-accounts-receivable-and-check-account-register">
+<h1>Markpoint 3: Save to Accounts Receivable and Check Account Register<a class="headerlink" href="#markpoint-3-save-to-accounts-receivable-and-check-account-register" title="Link to this heading"></a></h1>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading"></a></h2>
+<p>This function updates the Accounts Receivable statements (<code class="docutils literal notranslate"><span class="pre">BKARINVT</span></code>) or the Check Account Register (<code class="docutils literal notranslate"><span class="pre">BKGLCHK</span></code>), based on whether the transaction is cash-based or not. It determines the cash status by looking at the payment term type and uses the <code class="docutils literal notranslate"><span class="pre">ent_chckact</span></code> logic to retrieve the appropriate checking account based on <code class="docutils literal notranslate"><span class="pre">BKSY_AR_CHKACT</span></code>.</p>
+</section>
+<section id="sql-function">
+<h2>SQL Function<a class="headerlink" href="#sql-function" title="Link to this heading"></a></h2>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">PROCEDURE</span><span class="w"> </span><span class="n">markpoint_3_SaveToARAndCheckAccount</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="o">@</span><span class="n">invoiceNum</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="k">AS</span>
+<span class="k">BEGIN</span>
+<span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">cash</span><span class="w"> </span><span class="nb">BIT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">post_typ</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;RS&#39;</span>
+<span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">invTotal</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">invDate</span><span class="w"> </span><span class="nb">DATE</span>
+<span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">invTermName</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">invTermType</span><span class="w"> </span><span class="nb">CHAR</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">invDesc</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">cusName</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">slsp</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">webID</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">cusCode</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">chkact</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+<span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">chosenAct</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">40</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">-- Get invoice details</span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="o">@</span><span class="n">invTotal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BKAR_INV_TOTAL</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">invDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BKAR_INV_INVDTE</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">invTermName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BKAR_INV_TERMNM</span><span class="p">,</span><span class="w"> </span>
+<span class="w">           </span><span class="o">@</span><span class="n">invDesc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BKAR_INV_DESC</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">cusName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BKAR_INV_CUSNME</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">slsp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BKAR_INV_SLSP</span><span class="p">,</span><span class="w"> </span>
+<span class="w">           </span><span class="o">@</span><span class="n">webID</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BKAR_INV_WEBID</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">cusCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BKAR_INV_CUSCOD</span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">BKARINV</span>
+<span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKAR_INV_NUM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">invoiceNum</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">-- Determine if the transaction is cash-based</span>
+<span class="w">    </span><span class="k">IF</span><span class="w"> </span><span class="o">@</span><span class="n">invTermName</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span>
+<span class="w">    </span><span class="k">BEGIN</span>
+<span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="o">@</span><span class="n">invTermType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BKSY_TERM_TYP</span><span class="w"> </span>
+<span class="w">        </span><span class="k">FROM</span><span class="w"> </span><span class="n">BKSYTERM</span><span class="w"> </span>
+<span class="w">        </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKSY_TERM_NUM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">invTermName</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">IF</span><span class="w"> </span><span class="o">@</span><span class="n">invTermType</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;A&#39;</span><span class="p">)</span><span class="w"> </span>
+<span class="w">        </span><span class="k">BEGIN</span>
+<span class="w">            </span><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">cash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">            </span><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">post_typ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;CR&#39;</span><span class="p">;</span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="o">@</span><span class="n">invTotal</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">            </span><span class="k">BEGIN</span>
+<span class="w">                </span><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">post_typ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;CD&#39;</span><span class="p">;</span>
+<span class="w">            </span><span class="k">END</span>
+<span class="w">        </span><span class="k">END</span>
+<span class="w">    </span><span class="k">END</span>
+
+<span class="w">    </span><span class="c1">-- If not a cash transaction, update BKARINVT (A/R statements)</span>
+<span class="w">    </span><span class="k">IF</span><span class="w"> </span><span class="o">@</span><span class="n">cash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">    </span><span class="k">BEGIN</span>
+<span class="w">        </span><span class="c1">-- Populate BKARINVT with the relevant data</span>
+<span class="w">        </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">BKARINVT</span><span class="w"> </span><span class="p">(</span><span class="n">BKAR_INVT_NUM</span><span class="p">,</span><span class="w"> </span><span class="n">BKAR_INVT_DATE</span><span class="p">,</span><span class="w"> </span><span class="n">BKAR_INVT_CODE</span><span class="p">,</span><span class="w"> </span><span class="n">BKAR_INVT_AMT</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                              </span><span class="n">BKAR_INVT_AMTRM</span><span class="p">,</span><span class="w"> </span><span class="n">BKAR_INVT_DESC</span><span class="p">,</span><span class="w"> </span><span class="n">BKAR_INVT_TYPE</span><span class="p">,</span><span class="w"> </span><span class="n">BKAR_INVT_TERMN</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                              </span><span class="n">BKAR_INVT_SLSP</span><span class="p">,</span><span class="w"> </span><span class="n">BKAR_INVT_WEBID</span><span class="p">)</span>
+<span class="w">        </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="o">@</span><span class="n">invoiceNum</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">invDate</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">cusCode</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">invTotal</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">invTotal</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                </span><span class="k">CASE</span><span class="w"> </span>
+<span class="w">                    </span><span class="k">WHEN</span><span class="w"> </span><span class="k">LEFT</span><span class="p">(</span><span class="o">@</span><span class="n">invDesc</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;RMA #&#39;</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="n">CONCAT</span><span class="p">(</span><span class="s1">&#39;RMA#&#39;</span><span class="p">,</span><span class="w"> </span><span class="k">SUBSTRING</span><span class="p">(</span><span class="o">@</span><span class="n">invDesc</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">))</span>
+<span class="w">                    </span><span class="k">WHEN</span><span class="w"> </span><span class="o">@</span><span class="n">invDesc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="o">@</span><span class="n">invTotal</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;Credit Invoice&#39;</span>
+<span class="w">                    </span><span class="k">WHEN</span><span class="w"> </span><span class="o">@</span><span class="n">invDesc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;Invoice&#39;</span>
+<span class="w">                    </span><span class="k">ELSE</span><span class="w"> </span><span class="o">@</span><span class="n">invDesc</span>
+<span class="w">                </span><span class="k">END</span><span class="p">,</span>
+<span class="w">                </span><span class="k">CASE</span><span class="w"> </span>
+<span class="w">                    </span><span class="k">WHEN</span><span class="w"> </span><span class="o">@</span><span class="n">invTotal</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;C&#39;</span><span class="w"> </span>
+<span class="w">                    </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">&#39;I&#39;</span><span class="w"> </span>
+<span class="w">                </span><span class="k">END</span><span class="p">,</span>
+<span class="w">                </span><span class="o">@</span><span class="n">invTermName</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">slsp</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">webID</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">-- Markpoint 3 for BKARINVT</span>
+<span class="w">        </span><span class="k">EXEC</span><span class="w"> </span><span class="n">markpoint_3_SaveToARStatement</span><span class="w"> </span><span class="o">@</span><span class="n">invoiceNum</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">END</span>
+<span class="w">    </span><span class="k">ELSE</span>
+<span class="w">    </span><span class="k">BEGIN</span>
+<span class="w">        </span><span class="c1">-- Step 1: Use BKSY_AR_CHKACT for account selection</span>
+<span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="o">@</span><span class="n">chkact</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BKSY_AR_CHKACT</span><span class="w"> </span>
+<span class="w">        </span><span class="k">FROM</span><span class="w"> </span><span class="n">BKSYTERM</span>
+<span class="w">        </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKSY_TERM_NUM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">invTermName</span><span class="p">;</span>
+
+<span class="w">        </span><span class="c1">-- Step 2: Ensure a valid account is selected from BKSYCHCK based on BKSY_AR_CHKACT</span>
+<span class="w">        </span><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">chosenAct</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span>
+<span class="w">            </span><span class="k">SELECT</span><span class="w"> </span><span class="n">BKSY_CHCK_ACTNM</span><span class="w"> </span>
+<span class="w">            </span><span class="k">FROM</span><span class="w"> </span><span class="n">BKSYCHCK</span>
+<span class="w">            </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKSY_CHCK_ACTNM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">chkact</span>
+<span class="w">              </span><span class="k">AND</span><span class="w"> </span><span class="n">BKSY_CHCK_NAME</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w">   </span><span class="c1">-- Valid account names</span>
+<span class="w">              </span><span class="k">AND</span><span class="w"> </span><span class="n">BKSY_CHCK_ACTIV</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="s1">&#39;N&#39;</span><span class="w"> </span><span class="c1">-- Only active accounts</span>
+<span class="w">        </span><span class="p">)</span>
+
+<span class="w">        </span><span class="c1">-- If no valid checking account found, raise an error</span>
+<span class="w">        </span><span class="k">IF</span><span class="w"> </span><span class="o">@</span><span class="n">chosenAct</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span>
+<span class="w">        </span><span class="k">BEGIN</span>
+<span class="w">            </span><span class="n">RAISERROR</span><span class="p">(</span><span class="s1">&#39;No valid checking account available. Cannot continue.&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">            </span><span class="k">RETURN</span>
+<span class="w">        </span><span class="k">END</span>
+
+<span class="w">        </span><span class="c1">-- Step 3: Insert into BKGLCHK (Check Account Register)</span>
+<span class="w">        </span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">BKGLCHK</span><span class="w"> </span><span class="p">(</span><span class="n">BKGL_CHK_AMT</span><span class="p">,</span><span class="w"> </span><span class="n">BKGL_CHK_DATE</span><span class="p">,</span><span class="w"> </span><span class="n">BKGL_CHK_TYPE</span><span class="p">,</span><span class="w"> </span><span class="n">BKGL_CHK_NUM</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                             </span><span class="n">BKGL_CHK_NAME</span><span class="p">,</span><span class="w"> </span><span class="n">BKGL_CHK_FLAG</span><span class="p">,</span><span class="w"> </span><span class="n">BKGL_CHK_CHKACT</span><span class="p">)</span>
+<span class="w">        </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="o">@</span><span class="n">invTotal</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">invDate</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                </span><span class="k">CASE</span><span class="w"> </span>
+<span class="w">                    </span><span class="k">WHEN</span><span class="w"> </span><span class="o">@</span><span class="n">invTotal</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;C&#39;</span><span class="w"> </span>
+<span class="w">                    </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">&#39;D&#39;</span><span class="w"> </span>
+<span class="w">                </span><span class="k">END</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                </span><span class="o">@</span><span class="n">invoiceNum</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">cusName</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">chosenAct</span><span class="p">);</span>
+
+<span class="w">        </span><span class="c1">-- Markpoint 3 for BKGLCHK</span>
+<span class="w">        </span><span class="k">EXEC</span><span class="w"> </span><span class="n">markpoint_3_SaveToCheckAccount</span><span class="w"> </span><span class="o">@</span><span class="n">invoiceNum</span><span class="p">;</span>
+<span class="w">    </span><span class="k">END</span>
+
+<span class="w">    </span><span class="k">RETURN</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">END</span>
+<span class="k">GO</span>
+</pre></div>
+</div>
+</section>
+<section id="breakdown-of-actions">
+<h2>Breakdown of Actions:<a class="headerlink" href="#breakdown-of-actions" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Cash Determination</strong>:</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">cash</span></code> flag is set to <code class="docutils literal notranslate"><span class="pre">True</span></code> if the payment term type (<code class="docutils literal notranslate"><span class="pre">BKSY_TERM_TYP</span></code>) associated with the invoice is either <code class="docutils literal notranslate"><span class="pre">C</span></code> (Cash) or <code class="docutils literal notranslate"><span class="pre">A</span></code> (Advanced).</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">post_typ</span></code> is set to:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">CR</span></code> for cash receipts.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CD</span></code> for cash debits if the invoice total is negative.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Accounts Receivable Update (Non-Cash Transactions)</strong>:</p>
+<ul class="simple">
+<li><p><strong>Condition</strong>: If the transaction is non-cash (<code class="docutils literal notranslate"><span class="pre">cash</span> <span class="pre">=</span> <span class="pre">0</span></code>), insert the relevant details into the <code class="docutils literal notranslate"><span class="pre">BKARINVT</span></code> table.</p></li>
+<li><p>The invoice description is updated based on whether the description starts with “RMA #”, or if it’s a credit invoice.</p></li>
+</ul>
+</li>
+<li><p><strong>Check Account Register Update (Cash Transactions)</strong>:</p>
+<ul class="simple">
+<li><p><strong>Condition</strong>: If the transaction is cash-based (<code class="docutils literal notranslate"><span class="pre">cash</span> <span class="pre">=</span> <span class="pre">1</span></code>), retrieve the correct checking account using <code class="docutils literal notranslate"><span class="pre">BKSY_AR_CHKACT</span></code> from <code class="docutils literal notranslate"><span class="pre">BKSYTERM</span></code>.</p></li>
+<li><p><strong>Action</strong>: The selected account (<code class="docutils literal notranslate"><span class="pre">BKSY_AR_CHKACT</span></code>) must exist in <code class="docutils literal notranslate"><span class="pre">BKSYCHCK</span></code> and must be active. If a valid account is found, the transaction details are inserted into the <code class="docutils literal notranslate"><span class="pre">BKGLCHK</span></code> table (Check Account Register).</p></li>
+<li><p>The type is set to <code class="docutils literal notranslate"><span class="pre">C</span></code> for credits or <code class="docutils literal notranslate"><span class="pre">D</span></code> for debits.</p></li>
+<li><p>If no valid checking account is found, the function raises an error and halts further execution.</p></li>
+</ul>
+</li>
+<li><p><strong>Markpoint 3 Execution</strong>:</p>
+<ul class="simple">
+<li><p>After inserting the data, the system calls the appropriate <code class="docutils literal notranslate"><span class="pre">markpoint_3_SaveToARStatement</span></code> or <code class="docutils literal notranslate"><span class="pre">markpoint_3_SaveToCheckAccount</span></code> procedure depending on whether the transaction was non-cash or cash-based.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="error-handling">
+<h2>Error Handling:<a class="headerlink" href="#error-handling" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>If no valid checking account is found when handling cash transactions (based on <code class="docutils literal notranslate"><span class="pre">BKSY_AR_CHKACT</span></code>), an error is raised with the message:</p>
+<ul>
+<li><p><em>“No valid checking account available. Cannot continue.”</em></p></li>
+</ul>
+</li>
+<li><p>Errors such as invalid inserts or missing required fields should raise exceptions that log the error and stop further processing.</p></li>
+</ul>
+</section>
+<section id="testing">
+<h2>Testing:<a class="headerlink" href="#testing" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Test Non-Cash Transactions</strong>:</p>
+<ul class="simple">
+<li><p>Create test cases where the payment term type is not <code class="docutils literal notranslate"><span class="pre">C</span></code> or <code class="docutils literal notranslate"><span class="pre">A</span></code>, and verify that the <code class="docutils literal notranslate"><span class="pre">BKARINVT</span></code> table is updated with correct details and the appropriate invoice description (<code class="docutils literal notranslate"><span class="pre">RMA</span></code>, <code class="docutils literal notranslate"><span class="pre">Invoice</span></code>, or <code class="docutils literal notranslate"><span class="pre">Credit</span> <span class="pre">Invoice</span></code>).</p></li>
+<li><p>Ensure that <code class="docutils literal notranslate"><span class="pre">markpoint_3_SaveToARStatement</span></code> is called correctly.</p></li>
+</ul>
+</li>
+<li><p><strong>Test Cash Transactions</strong>:</p>
+<ul class="simple">
+<li><p>Create test cases with payment term types <code class="docutils literal notranslate"><span class="pre">C</span></code> or <code class="docutils literal notranslate"><span class="pre">A</span></code> to ensure cash transactions are correctly inserted into the <code class="docutils literal notranslate"><span class="pre">BKGLCHK</span></code> table with correct flags and amounts.</p></li>
+<li><p>Ensure that <code class="docutils literal notranslate"><span class="pre">markpoint_3_SaveToCheckAccount</span></code> is called correctly.</p></li>
+</ul>
+</li>
+<li><p><strong>Negative Totals</strong>:</p>
+<ul class="simple">
+<li><p>Ensure that credit handling for both cash and non-cash transactions works properly and the correct <code class="docutils literal notranslate"><span class="pre">post_typ</span></code> (<code class="docutils literal notranslate"><span class="pre">CR</span></code>, <code class="docutils literal notranslate"><span class="pre">CD</span></code>) is assigned.</p></li>
+</ul>
+</li>
+<li><p><strong>Checking Account Selection</strong>:</p>
+<ul class="simple">
+<li><p>Test the account selection process based on the <code class="docutils literal notranslate"><span class="pre">BKSY_AR_CHKACT</span></code> field. Ensure it retrieves the correct account and validates its existence in the <code class="docutils literal notranslate"><span class="pre">BKSYCHCK</span></code> table. If no account is found or is inactive, confirm that the function correctly raises an error.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="notes">
+<h2>Notes:<a class="headerlink" href="#notes" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>The checking account is selected based on the <code class="docutils literal notranslate"><span class="pre">BKSY_AR_CHKACT</span></code> field in <code class="docutils literal notranslate"><span class="pre">BKSYTERM</span></code>. The function checks for the existence of the specified account in the <code class="docutils literal notranslate"><span class="pre">BKSYCHCK</span></code> table and ensures it is active. If no valid account is found, the process is halted with an error message.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="markpoint-1.html" class="btn btn-neutral float-left" title="Markpoint 1 AND 2: Save to Accounts Receivable Payment Record" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="markpoint-4.html" class="btn btn-neutral float-right" title="Markpoint 4: Post to General Ledger" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Chris Watkins.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Posting Database Tables Used &mdash; TAS Posting  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="post_to_gl2: Post to General Ledger" href="post_to_gl2.html" />
+    <link rel="prev" title="Markpoint 26: Delete or Update Invoice Header" href="markpoint-26.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            TAS Posting
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="post_so.html">Post_SO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pre-valiation.html">Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-1.html">Mark Point 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-3.html">Mark Point 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-4.html">Mark Point 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-5.html">Mark Point 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-6.html">Mark Point 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-7.html">Mark Point 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-8.html">Mark Point 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-9.html">Mark Point 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-10.html">Mark Point 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-11.html">Mark Point 11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-12.html">Mark Point 12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-13.html">Mark Point 13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-14.html">Mark Point 14</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-15.html">Mark Point 15</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-16.html">Mark Point 16</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-17.html">Mark Point 17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-18.html">Mark Point 18</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-19.html">Mark Point 19</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-20.html">Mark Point 20</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-23.html">Mark Point 23</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-24.html">Mark Point 24</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-25.html">Mark Point 25</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-26.html">Mark Point 26</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="post_to_gl2.html">POST_TO_GL2 post_to_gl2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="all_tables.html">All Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint.html">Markpoint</a></li>
+<li class="toctree-l1"><a class="reference internal" href="errorlog.html">ErrorLog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">TAS Posting</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Posting Database Tables Used</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/database.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="posting-database-tables-used">
+<h1>Posting Database Tables Used<a class="headerlink" href="#posting-database-tables-used" title="Link to this heading"></a></h1>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Database Name</strong></p></th>
+<th class="head"><p><strong>Table Name</strong></p></th>
+<th class="head"><p><strong>What It Does</strong></p></th>
+<th class="head"><p><strong>Read</strong></p></th>
+<th class="head"><p><strong>Insert</strong></p></th>
+<th class="head"><p><strong>Update</strong></p></th>
+<th class="head"><p><strong>Delete</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>ADVDATA</strong></p></td>
+<td><p><strong>BKCOUPON</strong></p></td>
+<td><p>Coupon tracking</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>ADVDATA</strong></p></td>
+<td><p><strong>BKEXCHNG</strong></p></td>
+<td><p>Exchange rates</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>ADVDATA</strong></p></td>
+<td><p><strong>BKICCAT</strong></p></td>
+<td><p>Item category master</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>ADVDATA</strong></p></td>
+<td><p><strong>BKMPLOCS</strong></p></td>
+<td><p>Mapping of locations</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>ADVDATA</strong></p></td>
+<td><p><strong>BKPRULES</strong></p></td>
+<td><p>Pricing rules</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>ADVDATA</strong></p></td>
+<td><p><strong>BKSLSREP</strong></p></td>
+<td><p>Sales representative data</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>ADVDATA</strong></p></td>
+<td><p><strong>BKSLSTYP</strong></p></td>
+<td><p>Sales type classification</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>ADVDATA</strong></p></td>
+<td><p><strong>BKZIP</strong></p></td>
+<td><p>ZIP code details</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>PACIFIC</strong></p></td>
+<td><p><strong>BKARCPRC</strong></p></td>
+<td><p>Customer pricing details</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>PACIFIC</strong></p></td>
+<td><p><strong>BKARCUST</strong></p></td>
+<td><p>Customer master data</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>PACIFIC</strong></p></td>
+<td><p><strong>BKARHINV</strong></p></td>
+<td><p>Invoice history header</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>PACIFIC</strong></p></td>
+<td><p><strong>BKARHIVL</strong></p></td>
+<td><p>Invoice history line items</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>PACIFIC</strong></p></td>
+<td><p><strong>BKARINV</strong></p></td>
+<td><p>Current invoice headers</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p>X</p></td>
+<td><p>x</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>PACIFIC</strong></p></td>
+<td><p><strong>BKARINVL</strong></p></td>
+<td><p>Current invoice line items</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>X</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>PACIFIC</strong></p></td>
+<td><p><strong>BKARINVT</strong></p></td>
+<td><p>Invoice totals and summary</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>PACIFIC</strong></p></td>
+<td><p><strong>BKARLSTF</strong></p></td>
+<td><p>Invoice listing flags</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>PACIFIC</strong></p></td>
+<td><p><strong>BKARLSTS</strong></p></td>
+<td><p>Invoice listing summary</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>PACIFIC</strong></p></td>
+<td><p><strong>BKARPR</strong></p></td>
+<td><p>Customer points data</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>PACIFIC</strong></p></td>
+<td><p><strong>BKDEPDAY</strong></p></td>
+<td><p>Daily deposit records</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>PACIFIC</strong></p></td>
+<td><p><strong>BKGLCHK</strong></p></td>
+<td><p>Cash transaction logs</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>PACIFIC</strong></p></td>
+<td><p><strong>BKGLCOA</strong></p></td>
+<td><p>General ledger chart of accounts</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>PACIFIC</strong></p></td>
+<td><p><strong>BKGLTRAN</strong></p></td>
+<td><p>General ledger transactions</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>PACIFIC</strong></p></td>
+<td><p><strong>BKHELP</strong></p></td>
+<td><p>Help documentation</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>PACIFIC</strong></p></td>
+<td><p><strong>BKICLOC</strong></p></td>
+<td><p>Item location master</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>PACIFIC</strong></p></td>
+<td><p><strong>BKICLOCM</strong></p></td>
+<td><p>Item location details for movement</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>PACIFIC</strong></p></td>
+<td><p><strong>BKICLOCW</strong></p></td>
+<td><p>Item location and warehouse data</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>PACIFIC</strong></p></td>
+<td><p><strong>BKICLWTR</strong></p></td>
+<td><p>RMA (Return Merchandise Authorization) line details</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>PACIFIC</strong></p></td>
+<td><p><strong>BKICMSTR</strong></p></td>
+<td><p>Item master details</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>PACIFIC</strong></p></td>
+<td><p><strong>BKICTAX</strong></p></td>
+<td><p>Tax authority details</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>PACIFIC</strong></p></td>
+<td><p><strong>BKICTRAN</strong></p></td>
+<td><p>Item transaction history</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>PACIFIC</strong></p></td>
+<td><p><strong>BKLOGGER</strong></p></td>
+<td><p>Logs for system and user activities</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>PACIFIC</strong></p></td>
+<td><p><strong>BKPTSHST</strong></p></td>
+<td><p>Points history for customer loyalty programs</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>PACIFIC</strong></p></td>
+<td><p><strong>BKRMAHST</strong></p></td>
+<td><p>RMA history</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>PACIFIC</strong></p></td>
+<td><p><strong>BKSLSWEB</strong></p></td>
+<td><p>Web sales tracking</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>PACIFIC</strong></p></td>
+<td><p><strong>BKSOBUCK</strong></p></td>
+<td><p>Sales buckets for customers</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>PACIFIC</strong></p></td>
+<td><p><strong>BKSOLOCK</strong></p></td>
+<td><p>Sales order lock details</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>PACIFIC</strong></p></td>
+<td><p><strong>BKSOMARK</strong></p></td>
+<td><p>Mark points for tracking transaction progress</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>PACIFIC</strong></p></td>
+<td><p><strong>BKSOMKLG</strong></p></td>
+<td><p>Sales order marketing log</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>PACIFIC</strong></p></td>
+<td><p><strong>BKSONOTE</strong></p></td>
+<td><p>Sales order notes</p></td>
+<td><p>X</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>PACIFIC</strong></p></td>
+<td><p><strong>BKSYCHCK</strong></p></td>
+<td><p>Check details for payment processing</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>PACIFIC</strong></p></td>
+<td><p><strong>BKSYMSTR</strong></p></td>
+<td><p>System master table</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>PACIFIC</strong></p></td>
+<td><p><strong>BKSYSSEC</strong></p></td>
+<td><p>System security settings</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>PACIFIC</strong></p></td>
+<td><p><strong>BKSYTERM</strong></p></td>
+<td><p>System terminal settings</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>PACIFIC</strong></p></td>
+<td><p><strong>BKSYUSER</strong></p></td>
+<td><p>User accounts</p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+<td><p>X</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>            &#39;BKGLTRNM&#39;,
+</pre></div>
+</div>
+<section id="unknowns-the-code-opens-these-tables-but-im-not-seeing-the-reference-possibly-burried-in-another-file">
+<h2>UNKNOWNS, the code opens these tables, but im not seeing the reference. possibly burried in another file<a class="headerlink" href="#unknowns-the-code-opens-these-tables-but-im-not-seeing-the-reference-possibly-burried-in-another-file" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>BKARLSTS:</p></li>
+<li><p>BKARLSTF:</p></li>
+<li><p>BKARCPRC:</p></li>
+<li><p>BKDEPDAY:</p></li>
+<li><p>BKSLSTYP:</p></li>
+<li><p>BKLOGGER:</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="markpoint-26.html" class="btn btn-neutral float-left" title="Markpoint 26: Delete or Update Invoice Header" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="post_to_gl2.html" class="btn btn-neutral float-right" title="post_to_gl2: Post to General Ledger" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Chris Watkins.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

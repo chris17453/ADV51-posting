@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Markpoint 7: Update Inventory Location &mdash; TAS Posting  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Markpoint 8: Save to Inventory Warehouse (RMA)" href="markpoint-8.html" />
+    <link rel="prev" title="Markpoint 6: Post Fuel Charges" href="markpoint-6.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            TAS Posting
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="post_so.html">Post_SO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pre-valiation.html">Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-1.html">Mark Point 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-3.html">Mark Point 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-4.html">Mark Point 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-5.html">Mark Point 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-6.html">Mark Point 6</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Mark Point 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-8.html">Mark Point 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-9.html">Mark Point 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-10.html">Mark Point 10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-11.html">Mark Point 11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-12.html">Mark Point 12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-13.html">Mark Point 13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-14.html">Mark Point 14</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-15.html">Mark Point 15</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-16.html">Mark Point 16</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-17.html">Mark Point 17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-18.html">Mark Point 18</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-19.html">Mark Point 19</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-20.html">Mark Point 20</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-23.html">Mark Point 23</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-24.html">Mark Point 24</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-25.html">Mark Point 25</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint-26.html">Mark Point 26</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="post_to_gl2.html">POST_TO_GL2 post_to_gl2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="all_tables.html">All Tables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="markpoint.html">Markpoint</a></li>
+<li class="toctree-l1"><a class="reference internal" href="errorlog.html">ErrorLog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">TAS Posting</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Markpoint 7: Update Inventory Location</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/markpoint-7.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="markpoint-7-update-inventory-location">
+<h1>Markpoint 7: Update Inventory Location<a class="headerlink" href="#markpoint-7-update-inventory-location" title="Link to this heading"></a></h1>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading"></a></h2>
+<p>This function updates the inventory location based on the product code and location from the invoice. If the product type is valid and not marked as “N” (non-inventory), the function adjusts inventory values such as quantity on hand (UOH) and quantity on sales order (UOSO) for returns (RMAs). It also updates the average cost (<code class="docutils literal notranslate"><span class="pre">BKIC_LOC_AVGC</span></code>) if necessary.</p>
+<ul class="simple">
+<li><p>This is a PER INVOICE LINE item iteration.</p></li>
+</ul>
+</section>
+<section id="sql-function">
+<h2>SQL Function<a class="headerlink" href="#sql-function" title="Link to this heading"></a></h2>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">PROCEDURE</span><span class="w"> </span><span class="n">markpoint_7_UpdateInventoryLocation</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="o">@</span><span class="n">invoiceNum</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">),</span>
+<span class="w">    </span><span class="o">@</span><span class="n">lineNum</span><span class="w"> </span><span class="nb">INT</span>
+<span class="p">)</span>
+<span class="k">AS</span>
+<span class="k">BEGIN</span>
+<span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">prodCode</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">locCode</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">prodType</span><span class="w"> </span><span class="nb">CHAR</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">invGroup</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">autob</span><span class="w"> </span><span class="nb">CHAR</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">pqty</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">avgCost</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">locUOH</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">locUOSO</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">locITRNS</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">locTotvl</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">passMark</span><span class="w"> </span><span class="nb">INT</span>
+<span class="w">    </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">postAmtTemp</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">-- Get product and location details from invoice line</span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="o">@</span><span class="n">prodCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BKAR_INVL_PCODE</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">locCode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BKAR_INVL_LOC</span><span class="p">,</span><span class="w"> </span>
+<span class="w">           </span><span class="o">@</span><span class="n">invGroup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BKAR_INV_GROUP</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">autob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BKAR_INVL_AUTOB</span><span class="p">,</span><span class="w"> </span>
+<span class="w">           </span><span class="o">@</span><span class="n">pqty</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BKAR_INVL_PQTY</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">passMark</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">BKARINVL</span>
+<span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKAR_INV_NUM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">invoiceNum</span>
+<span class="w">      </span><span class="k">AND</span><span class="w"> </span><span class="n">BKAR_INV_LINE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">lineNum</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">-- Find the product master record based on product code</span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="o">@</span><span class="n">prodType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BKIC_PROD_TYPE</span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">BKICMSTR</span>
+<span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKIC_PROD_CODE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">prodCode</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">-- Check if product type is valid and not &quot;N&quot; (non-inventory)</span>
+<span class="w">    </span><span class="k">IF</span><span class="w"> </span><span class="o">@</span><span class="n">prodType</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="o">@</span><span class="n">prodType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;N&#39;</span>
+<span class="w">    </span><span class="k">BEGIN</span>
+<span class="w">        </span><span class="k">RETURN</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="c1">-- Exit if product is non-inventory or invalid</span>
+<span class="w">    </span><span class="k">END</span>
+
+<span class="w">    </span><span class="c1">-- Find inventory location record based on product code and location</span>
+<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="o">@</span><span class="n">avgCost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BKIC_LOC_AVGC</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">locUOH</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BKIC_LOC_UOH</span><span class="p">,</span><span class="w"> </span>
+<span class="w">           </span><span class="o">@</span><span class="n">locUOSO</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BKIC_LOC_UOSO</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">locITRNS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BKIC_LOC_ITRNS</span>
+<span class="w">    </span><span class="k">FROM</span><span class="w"> </span><span class="n">BKICLOC</span>
+<span class="w">    </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKIC_PROD_CODE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">prodCode</span>
+<span class="w">      </span><span class="k">AND</span><span class="w"> </span><span class="n">BKIC_LOC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">locCode</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">-- Adjust values based on inventory group and auto-backorder flag</span>
+<span class="w">    </span><span class="k">IF</span><span class="w"> </span><span class="o">@</span><span class="n">invGroup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;RM&#39;</span>
+<span class="w">    </span><span class="k">BEGIN</span>
+<span class="w">        </span><span class="c1">-- For returns (RMA), adjust cost of goods sold and update inventory</span>
+<span class="w">        </span><span class="k">IF</span><span class="w"> </span><span class="o">@</span><span class="n">passMark</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">12</span>
+<span class="w">        </span><span class="k">BEGIN</span>
+<span class="w">            </span><span class="k">UPDATE</span><span class="w"> </span><span class="n">BKARINVL</span>
+<span class="w">            </span><span class="k">SET</span><span class="w"> </span><span class="n">BKAR_INVL_PCOGS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">avgCost</span>
+<span class="w">            </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKAR_INV_NUM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">invoiceNum</span>
+<span class="w">              </span><span class="k">AND</span><span class="w"> </span><span class="n">BKAR_INV_LINE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">lineNum</span><span class="p">;</span>
+<span class="w">        </span><span class="k">END</span>
+
+<span class="w">        </span><span class="c1">-- Adjust inventory quantities</span>
+<span class="w">        </span><span class="k">IF</span><span class="w"> </span><span class="o">@</span><span class="n">passMark</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">7</span>
+<span class="w">        </span><span class="k">BEGIN</span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="o">@</span><span class="n">autob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;W&#39;</span>
+<span class="w">            </span><span class="k">BEGIN</span>
+<span class="w">                </span><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">locUOH</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">locUOH</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="o">@</span><span class="n">pqty</span><span class="p">;</span><span class="w">  </span><span class="c1">-- Increase quantity on hand for warehouse returns</span>
+<span class="w">            </span><span class="k">END</span>
+
+<span class="w">            </span><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">locUOSO</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">locUOSO</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="o">@</span><span class="n">pqty</span><span class="p">;</span><span class="w">  </span><span class="c1">-- Decrease quantity on sales order</span>
+
+<span class="w">            </span><span class="c1">-- If not warehouse returns, update average cost</span>
+<span class="w">            </span><span class="k">IF</span><span class="w"> </span><span class="o">@</span><span class="n">autob</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="s1">&#39;W&#39;</span>
+<span class="w">            </span><span class="k">BEGIN</span>
+<span class="w">                </span><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">postAmtTemp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span><span class="w">  </span><span class="c1">-- Set adjustment amount</span>
+<span class="w">                </span><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">locTotvl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">avgCost</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="o">@</span><span class="n">postAmtTemp</span><span class="p">;</span>
+<span class="w">                </span><span class="k">SET</span><span class="w"> </span><span class="o">@</span><span class="n">avgCost</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">locTotvl</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="o">@</span><span class="n">locUOH</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="o">@</span><span class="n">locUOSO</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="o">@</span><span class="n">locITRNS</span><span class="p">);</span><span class="w">  </span><span class="c1">-- Recalculate average cost</span>
+<span class="w">            </span><span class="k">END</span>
+
+<span class="w">            </span><span class="c1">-- Markpoint 7 before updating inventory location</span>
+<span class="w">            </span><span class="k">EXEC</span><span class="w"> </span><span class="n">markpoint_7_SaveToInventory</span><span class="w"> </span><span class="o">@</span><span class="n">invoiceNum</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">lineNum</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+
+<span class="w">            </span><span class="c1">-- Update inventory location</span>
+<span class="w">            </span><span class="k">UPDATE</span><span class="w"> </span><span class="n">BKICLOC</span>
+<span class="w">            </span><span class="k">SET</span><span class="w"> </span><span class="n">BKIC_LOC_UOH</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">locUOH</span><span class="p">,</span>
+<span class="w">                </span><span class="n">BKIC_LOC_UOSO</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">locUOSO</span><span class="p">,</span>
+<span class="w">                </span><span class="n">BKIC_LOC_AVGC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">avgCost</span>
+<span class="w">            </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKIC_PROD_CODE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">prodCode</span>
+<span class="w">              </span><span class="k">AND</span><span class="w"> </span><span class="n">BKIC_LOC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">locCode</span><span class="p">;</span>
+
+<span class="w">            </span><span class="c1">-- Markpoint 7 after updating inventory location</span>
+<span class="w">            </span><span class="k">EXEC</span><span class="w"> </span><span class="n">markpoint_7_SaveToInventory</span><span class="w"> </span><span class="o">@</span><span class="n">invoiceNum</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">lineNum</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">        </span><span class="k">END</span>
+<span class="w">    </span><span class="k">END</span>
+
+<span class="w">    </span><span class="c1">-- Update post status</span>
+<span class="w">    </span><span class="k">EXEC</span><span class="w"> </span><span class="n">post_status</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">RETURN</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="k">END</span>
+<span class="k">GO</span>
+</pre></div>
+</div>
+</section>
+<section id="breakdown-of-actions">
+<h2>Breakdown of Actions:<a class="headerlink" href="#breakdown-of-actions" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Product Code and Location Lookup</strong>:</p>
+<ul class="simple">
+<li><p>The function retrieves the product code and location from the invoice line (<code class="docutils literal notranslate"><span class="pre">BKAR_INVL_PCODE</span></code>, <code class="docutils literal notranslate"><span class="pre">BKAR_INVL_LOC</span></code>).</p></li>
+<li><p>It checks the product type from the product master (<code class="docutils literal notranslate"><span class="pre">BKICMSTR</span></code>) table to ensure the product is inventory-based (not <code class="docutils literal notranslate"><span class="pre">N</span></code>).</p></li>
+</ul>
+</li>
+<li><p><strong>Inventory Location Lookup</strong>:</p>
+<ul class="simple">
+<li><p>The function retrieves the current inventory location details (<code class="docutils literal notranslate"><span class="pre">BKICLOC</span></code>) such as average cost (<code class="docutils literal notranslate"><span class="pre">BKIC_LOC_AVGC</span></code>), quantity on hand (<code class="docutils literal notranslate"><span class="pre">BKIC_LOC_UOH</span></code>), quantity on sales order (<code class="docutils literal notranslate"><span class="pre">BKIC_LOC_UOSO</span></code>), and inventory transactions (<code class="docutils literal notranslate"><span class="pre">BKIC_LOC_ITRNS</span></code>).</p></li>
+</ul>
+</li>
+<li><p><strong>Return Handling (RMA)</strong>:</p>
+<ul class="simple">
+<li><p><strong>Condition</strong>: If the inventory group (<code class="docutils literal notranslate"><span class="pre">BKAR_INV_GROUP</span></code>) is <code class="docutils literal notranslate"><span class="pre">RM</span></code> (returns), and the <code class="docutils literal notranslate"><span class="pre">pass_mark</span></code> is less than <code class="docutils literal notranslate"><span class="pre">12</span></code>, the cost of goods sold (<code class="docutils literal notranslate"><span class="pre">BKAR_INVL_PCOGS</span></code>) is updated based on the average cost from <code class="docutils literal notranslate"><span class="pre">BKICLOC</span></code>.</p></li>
+<li><p>If the <code class="docutils literal notranslate"><span class="pre">pass_mark</span></code> is less than <code class="docutils literal notranslate"><span class="pre">7</span></code>, the inventory quantities and average cost are adjusted.</p>
+<ul>
+<li><p><strong>Warehouse Returns</strong> (<code class="docutils literal notranslate"><span class="pre">autob</span> <span class="pre">=</span> <span class="pre">'W'</span></code>): The quantity on hand (<code class="docutils literal notranslate"><span class="pre">UOH</span></code>) is increased by the product quantity from the invoice line.</p></li>
+<li><p><strong>Non-Warehouse Returns</strong> (<code class="docutils literal notranslate"><span class="pre">autob</span> <span class="pre">&lt;&gt;</span> <span class="pre">'W'</span></code>): The average cost is recalculated based on the total value and updated quantities.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Inventory Adjustments</strong>:</p>
+<ul class="simple">
+<li><p>The function updates the inventory location quantities (<code class="docutils literal notranslate"><span class="pre">UOH</span></code>, <code class="docutils literal notranslate"><span class="pre">UOSO</span></code>) and the average cost (<code class="docutils literal notranslate"><span class="pre">AVGC</span></code>) based on the adjustments made during the return processing.</p></li>
+</ul>
+</li>
+<li><p><strong>Markpoint 7 Execution</strong>:</p>
+<ul class="simple">
+<li><p>The system executes <code class="docutils literal notranslate"><span class="pre">markpoint_7_SaveToInventory</span></code> both before and after updating the inventory location to indicate when the updates occur.</p></li>
+</ul>
+</li>
+<li><p><strong>Post Status</strong>:</p>
+<ul class="simple">
+<li><p>After completing the inventory updates, the function calls <code class="docutils literal notranslate"><span class="pre">post_status</span></code> to ensure the status is updated correctly.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="error-handling">
+<h2>Error Handling:<a class="headerlink" href="#error-handling" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>If the product is non-inventory (<code class="docutils literal notranslate"><span class="pre">BKIC_PROD_TYPE</span> <span class="pre">=</span> <span class="pre">'N'</span></code>) or if the product code is invalid, the function exits early without making any updates.</p></li>
+<li><p>Errors such as invalid inserts or missing required fields should raise exceptions that log the error and stop further processing.</p></li>
+</ul>
+</section>
+<section id="testing">
+<h2>Testing:<a class="headerlink" href="#testing" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Test Return Handling</strong>:</p>
+<ul class="simple">
+<li><p>Create test cases where the product is part of an RMA (<code class="docutils literal notranslate"><span class="pre">invGroup</span> <span class="pre">=</span> <span class="pre">'RM'</span></code>) to ensure that the function correctly updates the inventory quantities (<code class="docutils literal notranslate"><span class="pre">UOH</span></code>, <code class="docutils literal notranslate"><span class="pre">UOSO</span></code>) and recalculates the average cost (<code class="docutils literal notranslate"><span class="pre">AVGC</span></code>).</p></li>
+<li><p>Ensure that <code class="docutils literal notranslate"><span class="pre">markpoint_7_SaveToInventory</span></code> is called correctly both before and after the updates.</p></li>
+</ul>
+</li>
+<li><p><strong>Test Non-Inventory Products</strong>:</p>
+<ul class="simple">
+<li><p>Create test cases where the product type is <code class="docutils literal notranslate"><span class="pre">N</span></code> (non-inventory) to ensure that the function exits early and does not make any updates.</p></li>
+</ul>
+</li>
+<li><p><strong>Test Warehouse vs Non-Warehouse Returns</strong>:</p>
+<ul class="simple">
+<li><p>Create test cases where the <code class="docutils literal notranslate"><span class="pre">autob</span></code> flag is either <code class="docutils literal notranslate"><span class="pre">W</span></code> (warehouse) or not <code class="docutils literal notranslate"><span class="pre">W</span></code> to ensure that the function handles these cases correctly by either adjusting the quantity on hand or recalculating the average cost.</p></li>
+</ul>
+</li>
+<li><p><strong>Test Post Lock Handling</strong>:</p>
+<ul class="simple">
+<li><p>Test scenarios where the <code class="docutils literal notranslate"><span class="pre">post_nolock</span></code> flag is either set or not set to ensure the function correctly calls <code class="docutils literal notranslate"><span class="pre">quit_posting</span></code> when required.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="notes">
+<h2>Notes:<a class="headerlink" href="#notes" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Post to Inventory (<code class="docutils literal notranslate"><span class="pre">post_to_gl2</span></code>)</strong>: This procedure handles the actual posting of inventory changes. Ensure that the procedure is correctly implemented and accepts the necessary parameters for updating inventory and recalculating costs.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="markpoint-6.html" class="btn btn-neutral float-left" title="Markpoint 6: Post Fuel Charges" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="markpoint-8.html" class="btn btn-neutral float-right" title="Markpoint 8: Save to Inventory Warehouse (RMA)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Chris Watkins.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
