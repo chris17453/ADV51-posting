@@ -16,9 +16,9 @@ The `post_so` stored procedure is designed to process sales orders by performing
   - [2. Transaction Management](#2-transaction-management)
   - [3. Idempotency Check](#3-idempotency-check)
   - [4. Pre-validation Steps](#4-pre-validation-steps)
-  - [5. Mark Point Logging](#5-mark-point-logging)
-  - [6. Per Invoice Line Item Processing](#6-per-invoice-line-item-processing)
-  - [7. Post-Invoice Level Processing](#7-post-invoice-level-processing)
+  - [5. Mark Point Logging](#5-mark-point-header-routines)
+  - [6. Per Invoice Line Item Processing](#6-mark-point-per-invoice-line-item-processing)
+  - [7. Post-Invoice Level Processing](#7-mark-point-post-invoice-level-processing)
   - [8. Finalization](#8-finalization)
 - [Error Handling](#error-handling)
 - [Dependencies](#dependencies)
@@ -435,7 +435,7 @@ Performs a series of validations to ensure the invoice is eligible for processin
 
 Each failed validation raises an error and rolls back the transaction.
 
-### 5. Mark Point Logging
+### 5. Mark Point Header Routines
 
 Logs progress at various stages (mark points 1-6) by executing corresponding stored procedures:
 
@@ -445,7 +445,7 @@ Logs progress at various stages (mark points 1-6) by executing corresponding sto
 4. **Markpoint 5:** Post Freight to GL.
 5. **Markpoint 6:** Post Fuel to GL.
 
-### 6. Per Invoice Line Item Processing
+### 6. Mark point Per Invoice Line Item Processing
 
 Processes each line item in the invoice sequentially:
 
@@ -463,7 +463,7 @@ Processes each line item in the invoice sequentially:
 
 Each mark point execution updates the `@currentMarkPoint` variable to facilitate error logging.
 
-### 7. Post-Invoice Level Processing
+### 7. Mark point Post-Invoice Level Processing
 
 Performs operations after all line items have been processed:
 
