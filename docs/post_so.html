@@ -159,9 +159,9 @@
 <li><p><a class="reference internal" href="#2-transaction-management"><span class="xref myst">2. Transaction Management</span></a></p></li>
 <li><p><a class="reference internal" href="#3-idempotency-check"><span class="xref myst">3. Idempotency Check</span></a></p></li>
 <li><p><a class="reference internal" href="#4-pre-validation-steps"><span class="xref myst">4. Pre-validation Steps</span></a></p></li>
-<li><p><a class="reference internal" href="#5-mark-point-logging"><span class="xref myst">5. Mark Point Logging</span></a></p></li>
-<li><p><a class="reference internal" href="#6-per-invoice-line-item-processing"><span class="xref myst">6. Per Invoice Line Item Processing</span></a></p></li>
-<li><p><a class="reference internal" href="#7-post-invoice-level-processing"><span class="xref myst">7. Post-Invoice Level Processing</span></a></p></li>
+<li><p><a class="reference internal" href="#5-mark-point-header-routines"><span class="xref myst">5. Mark Point Header Routines</span></a></p></li>
+<li><p><a class="reference internal" href="#6-mark-point-per-invoice-line-item-processing"><span class="xref myst">6. Mark Point Per Invoice Line Item Processing</span></a></p></li>
+<li><p><a class="reference internal" href="#7-mark-point-post-invoice-level-processing"><span class="xref myst">7. Mark Point Post-Invoice Level Processing</span></a></p></li>
 <li><p><a class="reference internal" href="#8-finalization"><span class="xref myst">8. Finalization</span></a></p></li>
 </ul>
 </li>
@@ -605,8 +605,8 @@
 </ol>
 <p>Each failed validation raises an error and rolls back the transaction.</p>
 </section>
-<section id="mark-point-logging">
-<h3>5. Mark Point Logging<a class="headerlink" href="#mark-point-logging" title="Link to this heading">¶</a></h3>
+<section id="mark-point-header-routines">
+<h3>5. Mark Point Header Routines<a class="headerlink" href="#mark-point-header-routines" title="Link to this heading">¶</a></h3>
 <p>Logs progress at various stages (mark points 1-6) by executing corresponding stored procedures:</p>
 <ol class="arabic simple">
 <li><p><strong>Markpoint 1 &amp; 2:</strong> Save Accounts Receivable and Customer Record.</p></li>
@@ -616,8 +616,8 @@
 <li><p><strong>Markpoint 6:</strong> Post Fuel to GL.</p></li>
 </ol>
 </section>
-<section id="per-invoice-line-item-processing">
-<h3>6. Per Invoice Line Item Processing<a class="headerlink" href="#per-invoice-line-item-processing" title="Link to this heading">¶</a></h3>
+<section id="mark-point-per-invoice-line-item-processing">
+<h3>6. Mark point Per Invoice Line Item Processing<a class="headerlink" href="#mark-point-per-invoice-line-item-processing" title="Link to this heading">¶</a></h3>
 <p>Processes each line item in the invoice sequentially:</p>
 <ol class="arabic simple">
 <li><p><strong>Markpoint 7:</strong> Update Inventory Location.</p></li>
@@ -634,8 +634,8 @@
 </ol>
 <p>Each mark point execution updates the <code class="docutils literal notranslate"><span class="pre">&#64;currentMarkPoint</span></code> variable to facilitate error logging.</p>
 </section>
-<section id="post-invoice-level-processing">
-<h3>7. Post-Invoice Level Processing<a class="headerlink" href="#post-invoice-level-processing" title="Link to this heading">¶</a></h3>
+<section id="mark-point-post-invoice-level-processing">
+<h3>7. Mark point Post-Invoice Level Processing<a class="headerlink" href="#mark-point-post-invoice-level-processing" title="Link to this heading">¶</a></h3>
 <p>Performs operations after all line items have been processed:</p>
 <ol class="arabic simple">
 <li><p><strong>Markpoint 18:</strong> Update Points History.</p></li>
@@ -754,9 +754,9 @@
 <li><a class="reference internal" href="#transaction-management">2. Transaction Management</a></li>
 <li><a class="reference internal" href="#idempotency-check">3. Idempotency Check</a></li>
 <li><a class="reference internal" href="#pre-validation-steps">4. Pre-validation Steps</a></li>
-<li><a class="reference internal" href="#mark-point-logging">5. Mark Point Logging</a></li>
-<li><a class="reference internal" href="#per-invoice-line-item-processing">6. Per Invoice Line Item Processing</a></li>
-<li><a class="reference internal" href="#post-invoice-level-processing">7. Post-Invoice Level Processing</a></li>
+<li><a class="reference internal" href="#mark-point-header-routines">5. Mark Point Header Routines</a></li>
+<li><a class="reference internal" href="#mark-point-per-invoice-line-item-processing">6. Mark point Per Invoice Line Item Processing</a></li>
+<li><a class="reference internal" href="#mark-point-post-invoice-level-processing">7. Mark point Post-Invoice Level Processing</a></li>
 <li><a class="reference internal" href="#finalization">8. Finalization</a></li>
 </ul>
 </li>
