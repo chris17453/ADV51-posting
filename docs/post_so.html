@@ -59,7 +59,8 @@
     <nav class="toc mt-3" aria-label="Main menu">
         <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Post_SO</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">post_so</span></code> Stored Procedure Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#helper-functions">Helper functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pre-valiation.html">Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markpoint-1.html">Mark Point 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markpoint-3.html">Mark Point 3</a></li>
@@ -85,6 +86,7 @@
 <li class="toctree-l1"><a class="reference internal" href="markpoint-25.html">Mark Point 25</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markpoint-26.html">Mark Point 26</a></li>
 <li class="toctree-l1"><a class="reference internal" href="database.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_invoice_from_history.html">create_invoice_from_history</a></li>
 <li class="toctree-l1"><a class="reference internal" href="post_to_gl2.html">post_to_gl2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="all_tables.html">All Tables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markpoint.html">Markpoint</a></li>
@@ -146,6 +148,13 @@
 <h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">post_so</span></code> stored procedure is designed to process sales orders by performing a series of validations, logging mark points, handling transactions with enhanced error logging, and updating relevant records across multiple tables. This procedure ensures data integrity and consistency by implementing idempotency checks and comprehensive error handling mechanisms.</p>
 </section>
+</section>
+<section id="helper-functions">
+<h1>Helper functions<a class="headerlink" href="#helper-functions" title="Link to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>create_invoice_from_history (will allow testing with existing invoices, giving them ned Invoice Numbers and Sales Order numbers)</p></li>
+<li><p>post_to_gl2 will make any Chart of account updates</p></li>
+</ul>
 <section id="sql-code">
 <h2>SQL Code<a class="headerlink" href="#sql-code" title="Link to this heading">¶</a></h2>
 <p>Below is the updated <code class="docutils literal notranslate"><span class="pre">post_so</span></code> stored procedure incorporating the required changes:</p>
@@ -437,8 +446,6 @@
 <span class="w">        </span><span class="c1">-- Commit Transaction</span>
 <span class="w">        </span><span class="k">COMMIT</span><span class="w"> </span><span class="k">TRANSACTION</span><span class="p">;</span>
 
-<span class="w">        </span><span class="c1">-- Update post status</span>
-<span class="w">        </span><span class="k">EXEC</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">post_status</span><span class="p">;</span>
 
 <span class="w">    </span><span class="k">END</span><span class="w"> </span><span class="n">TRY</span>
 <span class="w">    </span><span class="k">BEGIN</span><span class="w"> </span><span class="n">CATCH</span>
@@ -719,6 +726,9 @@
                             <ul>
 <li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">post_so</span></code> Stored Procedure Documentation</a><ul>
 <li><a class="reference internal" href="#summary">Summary</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#helper-functions">Helper functions</a><ul>
 <li><a class="reference internal" href="#sql-code">SQL Code</a></li>
 <li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>

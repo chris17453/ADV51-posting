@@ -23,15 +23,15 @@ Below is the implementation of the `mark_point` stored procedure, incorporating 
 ```sql
 -- =============================================
 -- Author:        Chris Watkins of Watkins Labs
--- Create date:   YYYY-MM-DD
+-- Create date:   2024-08-21
 -- Description:   Log Mark Points into BKSOMARK Table with Transaction and Locking
 -- =============================================
 
-CREATE PROCEDURE dbo.mark_point (
-    @invoiceNum INT,
-    @mark_point INT,
-    @line_num FLOAT,
-    @pass_done SMALLINT
+CREATE PROCEDURE dbo.MarkPoint (
+    @InvoiceNum INT,
+    @MarkPoint INT,
+    @LineNum FLOAT,
+    @PassDone SMALLINT
 )
 AS
 BEGIN
@@ -42,7 +42,6 @@ BEGIN
         -- Transaction Management
         -- =============================
 
-        -- Set the isolation level to SERIALIZABLE to prevent phantom reads
         SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
         BEGIN TRANSACTION;
 
@@ -50,86 +49,60 @@ BEGIN
         -- Parameter Validation
         -- =============================
 
-        -- Validate @invoiceNum (must be a positive integer)
-        IF @invoiceNum <= 0
-        BEGIN
-            RAISERROR('Invoice number must be a positive integer.', 16, 1);
-            ROLLBACK TRANSACTION;
-            RETURN;
-        END
+        IF @InvoiceNum <= 0
+            THROW 50000, 'Invoice number must be a positive integer.', 1;
 
-        -- Validate @mark_point (must be a positive integer)
-        IF @mark_point <= 0
-        BEGIN
-            RAISERROR('Mark point identifier must be a positive integer.', 16, 1);
-            ROLLBACK TRANSACTION;
-            RETURN;
-        END
+        IF @MarkPoint <= 0
+            THROW 50000, 'Mark point identifier must be a positive integer.', 1;
 
-        -- Validate @line_num (must be a positive number)
-        IF @line_num <= 0
-        BEGIN
-            RAISERROR('Line number must be a positive number.', 16, 1);
-            ROLLBACK TRANSACTION;
-            RETURN;
-        END
+        IF @LineNum <= 0
+            THROW 50000, 'Line number must be a positive number.', 1;
 
-        -- Validate @pass_done (must be either 0 or 1)
-        IF @pass_done NOT IN (0, 1)
-        BEGIN
-            RAISERROR('Pass done must be either 0 (False) or 1 (True).', 16, 1);
-            ROLLBACK TRANSACTION;
-            RETURN;
-        END
+        IF @PassDone NOT IN (0, 1)
+            THROW 50000, 'Pass done must be either 0 (False) or 1 (True).', 1;
 
         -- =============================
         -- Locking Mechanism
         -- =============================
 
-        -- Acquire an exclusive lock on the BKSOMARK row for the specific invoice
-        -- This ensures that no other transactions can insert or modify mark points for the same invoice concurrently
         DECLARE @dummy INT;
         SELECT @dummy = 1
         FROM BKSOMARK WITH (UPDLOCK, HOLDLOCK)
-        WHERE BKSOMARK_INVNM = @invoiceNum;
+        WHERE BKSOMARK_INVNM = @InvoiceNum;
 
         -- =============================
         -- Sequential Mark Point Logging
         -- =============================
 
-        -- Retrieve the current maximum mark point for the invoice
-        DECLARE @current_max_mark INT;
-        SELECT @current_max_mark = MAX(BKSOMARK_MARK)
+        DECLARE @CurrentMaxMark INT;
+        SELECT @CurrentMaxMark = MAX(BKSOMARK_MARK)
         FROM BKSOMARK
-        WHERE BKSOMARK_INVNM = @invoiceNum;
+        WHERE BKSOMARK_INVNM = @InvoiceNum;
 
-        -- Ensure that the new mark_point is greater than the current maximum to maintain order
-        IF @current_max_mark IS NOT NULL AND @mark_point <= @current_max_mark
-        BEGIN
-            RAISERROR('Mark point identifier must be greater than the existing maximum mark point for the invoice.', 16, 1);
-            ROLLBACK TRANSACTION;
-            RETURN;
-        END
+        IF @CurrentMaxMark IS NOT NULL AND @MarkPoint <= @CurrentMaxMark
+            THROW 50000, 'Mark point identifier must be greater than the existing maximum mark point for the invoice.', 1;
 
         -- =============================
         -- Insert or Update Mark Point
         -- =============================
 
+        DECLARE @CurrentDate DATE = CAST(GETDATE() AS DATE);
+
         IF EXISTS (
             SELECT 1 
             FROM BKSOMARK
-            WHERE BKSOMARK_INVNM = @invoiceNum
+            WHERE BKSOMARK_INVNM = @InvoiceNum
         )
         BEGIN
             -- Update existing row with the new mark point
             UPDATE BKSOMARK
             SET 
-                BKSOMARK_MARK = @mark_point,
-                BKSOMARK_LINE = @line_num,
-                BKSOMARK_DONE = @pass_done,
-                BKSOMARK_DATE = CAST(GETDATE() AS DATE)
+                BKSOMARK_MARK = @MarkPoint,
+                BKSOMARK_LINE = @LineNum,
+                BKSOMARK_DONE = @PassDone,
+                BKSOMARK_DATE = @CurrentDate
             WHERE 
-                BKSOMARK_INVNM = @invoiceNum;
+                BKSOMARK_INVNM = @InvoiceNum;
         END
         ELSE
         BEGIN
@@ -142,11 +115,11 @@ BEGIN
                 BKSOMARK_DATE
             )
             VALUES (
-                @invoiceNum,
-                @mark_point,
-                @line_num,
-                @pass_done,
-                CAST(GETDATE() AS DATE)
+                @InvoiceNum,
+                @MarkPoint,
+                @LineNum,
+                @PassDone,
+                @CurrentDate
             );
         END
 
@@ -162,27 +135,18 @@ BEGIN
         -- Error Handling
         -- =============================
 
-        -- Rollback the transaction if it's still active
         IF XACT_STATE() <> 0
             ROLLBACK TRANSACTION;
 
-        -- Retrieve error information
         DECLARE @ErrorMessage NVARCHAR(4000) = ERROR_MESSAGE();
         DECLARE @ErrorSeverity INT = ERROR_SEVERITY();
         DECLARE @ErrorState INT = ERROR_STATE();
 
-        -- Optionally, log the error to an ErrorLog table
-        -- Uncomment and modify the following lines if an ErrorLog table exists
-        /*
-        INSERT INTO dbo.ErrorLog (ErrorMessage, ErrorSeverity, ErrorState, ErrorTime)
-        VALUES (@ErrorMessage, @ErrorSeverity, @ErrorState, GETDATE());
-        */
-
-        -- Re-raise the error to the calling environment
         RAISERROR (@ErrorMessage, @ErrorSeverity, @ErrorState);
     END CATCH
 END;
 GO
+
 ```
 
 ## **Detailed Breakdown of Actions**

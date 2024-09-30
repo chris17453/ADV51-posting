@@ -69,8 +69,6 @@ BEGIN
         -- Markpoint 12 after posting
         EXEC markpoint 12, @invoiceNum, @lineNum, 1;
 
-        -- Update post status
-        EXEC post_status;
     END
 
     RETURN 0;

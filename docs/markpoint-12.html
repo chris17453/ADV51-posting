@@ -59,7 +59,8 @@
     <nav class="toc mt-3" aria-label="Main menu">
         <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="post_so.html">Post_SO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="post_so.html"><code class="docutils literal notranslate"><span class="pre">post_so</span></code> Stored Procedure Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="post_so.html#helper-functions">Helper functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pre-valiation.html">Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markpoint-1.html">Mark Point 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markpoint-3.html">Mark Point 3</a></li>
@@ -85,6 +86,7 @@
 <li class="toctree-l1"><a class="reference internal" href="markpoint-25.html">Mark Point 25</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markpoint-26.html">Mark Point 26</a></li>
 <li class="toctree-l1"><a class="reference internal" href="database.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_invoice_from_history.html">create_invoice_from_history</a></li>
 <li class="toctree-l1"><a class="reference internal" href="post_to_gl2.html">post_to_gl2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="all_tables.html">All Tables</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markpoint.html">Markpoint</a></li>
@@ -213,8 +215,6 @@
 <span class="w">        </span><span class="c1">-- Markpoint 12 after posting</span>
 <span class="w">        </span><span class="k">EXEC</span><span class="w"> </span><span class="n">markpoint</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">invoiceNum</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">lineNum</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 
-<span class="w">        </span><span class="c1">-- Update post status</span>
-<span class="w">        </span><span class="k">EXEC</span><span class="w"> </span><span class="n">post_status</span><span class="p">;</span>
 <span class="w">    </span><span class="k">END</span>
 
 <span class="w">    </span><span class="k">RETURN</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>

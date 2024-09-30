@@ -71,9 +71,6 @@ BEGIN
     -- Markpoint 5 after successful posting
     EXEC markpoint_5_SaveToGL @invoiceNum, 1;
 
-    -- Update status
-    EXEC post_status;
-
     RETURN 0;
 END
 GO
@@ -105,9 +102,6 @@ GO
 
 7. **Markpoint 5 Execution**:
    - The system executes `markpoint_5_SaveToGL` both before and after the posting action to indicate when the general ledger updates occur.
-
-8. **Post Status**:
-   - After the posting is successful, the function calls `post_status` to ensure the status is updated correctly.
 
 ### Error Handling:
 - Errors such as invalid inserts or missing required fields should raise exceptions that log the error and stop further processing.

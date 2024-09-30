@@ -135,8 +135,6 @@ BEGIN
         EXEC mark_point 22, 0, True;
     END
 
-    -- Final cleanup and post-status handling
-    EXEC post_status;
 
 END
 GO

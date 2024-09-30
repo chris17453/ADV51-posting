@@ -5,7 +5,9 @@
 
 The `post_so` stored procedure is designed to process sales orders by performing a series of validations, logging mark points, handling transactions with enhanced error logging, and updating relevant records across multiple tables. This procedure ensures data integrity and consistency by implementing idempotency checks and comprehensive error handling mechanisms.
 
-
+# Helper functions
+- create_invoice_from_history (will allow testing with existing invoices, giving them ned Invoice Numbers and Sales Order numbers)
+- post_to_gl2 will make any Chart of account updates
 
 ## SQL Code
 Below is the updated `post_so` stored procedure incorporating the required changes:
@@ -299,8 +301,6 @@ BEGIN
         -- Commit Transaction
         COMMIT TRANSACTION;
 
-        -- Update post status
-        EXEC dbo.post_status;
 
     END TRY
     BEGIN CATCH

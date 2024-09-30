@@ -41,6 +41,7 @@ documentation for details.
    Mark Point 25 <markpoint-25.md>
    Mark Point 26 <markpoint-26.md>
    Database <database.md>
+   create_invoice_from_history <create_invoice_from_history.md>
    post_to_gl2 <post_to_gl2.md>
    All Tables <all_tables.md>
    Markpoint <markpoint.md>

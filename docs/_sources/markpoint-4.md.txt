@@ -61,8 +61,6 @@ BEGIN
         -- Markpoint 4 after successful posting
         EXEC markpoint_4_SaveToGL @invoiceNum, 1;
         
-        -- Update status
-        EXEC post_status;
 
     END
     -- Case 2: Non-cash transaction
@@ -83,8 +81,6 @@ BEGIN
         -- Markpoint 4 after successful posting
         EXEC markpoint_4_SaveToGL @invoiceNum, 1;
 
-        -- Update status
-        EXEC post_status;
     END
 
     RETURN 0;
@@ -113,8 +109,6 @@ GO
 5. **Markpoint 4 Execution**:
    - The system executes `markpoint_4_SaveToGL` both before and after the posting action to indicate when the general ledger updates occur.
 
-6. **Post Status**:
-   - After a successful post, the function calls `post_status` to ensure all statuses are updated correctly.
 
 ### Error Handling:
 - If no valid checking account is found for cash transactions, an error is raised with the message:

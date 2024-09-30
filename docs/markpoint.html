@@ -59,7 +59,8 @@
     <nav class="toc mt-3" aria-label="Main menu">
         <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="post_so.html">Post_SO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="post_so.html"><code class="docutils literal notranslate"><span class="pre">post_so</span></code> Stored Procedure Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="post_so.html#helper-functions">Helper functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pre-valiation.html">Validation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markpoint-1.html">Mark Point 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markpoint-3.html">Mark Point 3</a></li>
@@ -85,6 +86,7 @@
 <li class="toctree-l1"><a class="reference internal" href="markpoint-25.html">Mark Point 25</a></li>
 <li class="toctree-l1"><a class="reference internal" href="markpoint-26.html">Mark Point 26</a></li>
 <li class="toctree-l1"><a class="reference internal" href="database.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="create_invoice_from_history.html">create_invoice_from_history</a></li>
 <li class="toctree-l1"><a class="reference internal" href="post_to_gl2.html">post_to_gl2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="all_tables.html">All Tables</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Markpoint</a></li>
@@ -163,15 +165,15 @@
 <p>Below is the implementation of the <code class="docutils literal notranslate"><span class="pre">mark_point</span></code> stored procedure, incorporating transaction management and locking to ensure sequential logging of mark points.</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- =============================================</span>
 <span class="c1">-- Author:        Chris Watkins of Watkins Labs</span>
-<span class="c1">-- Create date:   YYYY-MM-DD</span>
+<span class="c1">-- Create date:   2024-08-21</span>
 <span class="c1">-- Description:   Log Mark Points into BKSOMARK Table with Transaction and Locking</span>
 <span class="c1">-- =============================================</span>
 
-<span class="k">CREATE</span><span class="w"> </span><span class="k">PROCEDURE</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">mark_point</span><span class="w"> </span><span class="p">(</span>
-<span class="w">    </span><span class="o">@</span><span class="n">invoiceNum</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span>
-<span class="w">    </span><span class="o">@</span><span class="n">mark_point</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span>
-<span class="w">    </span><span class="o">@</span><span class="n">line_num</span><span class="w"> </span><span class="nb">FLOAT</span><span class="p">,</span>
-<span class="w">    </span><span class="o">@</span><span class="n">pass_done</span><span class="w"> </span><span class="nb">SMALLINT</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">PROCEDURE</span><span class="w"> </span><span class="n">dbo</span><span class="p">.</span><span class="n">MarkPoint</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="o">@</span><span class="n">InvoiceNum</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span>
+<span class="w">    </span><span class="o">@</span><span class="n">MarkPoint</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span>
+<span class="w">    </span><span class="o">@</span><span class="n">LineNum</span><span class="w"> </span><span class="nb">FLOAT</span><span class="p">,</span>
+<span class="w">    </span><span class="o">@</span><span class="n">PassDone</span><span class="w"> </span><span class="nb">SMALLINT</span>
 <span class="p">)</span>
 <span class="k">AS</span>
 <span class="k">BEGIN</span>
@@ -182,7 +184,6 @@
 <span class="w">        </span><span class="c1">-- Transaction Management</span>
 <span class="w">        </span><span class="c1">-- =============================</span>
 
-<span class="w">        </span><span class="c1">-- Set the isolation level to SERIALIZABLE to prevent phantom reads</span>
 <span class="w">        </span><span class="k">SET</span><span class="w"> </span><span class="k">TRANSACTION</span><span class="w"> </span><span class="k">ISOLATION</span><span class="w"> </span><span class="k">LEVEL</span><span class="w"> </span><span class="k">SERIALIZABLE</span><span class="p">;</span>
 <span class="w">        </span><span class="k">BEGIN</span><span class="w"> </span><span class="k">TRANSACTION</span><span class="p">;</span>
 
@@ -190,86 +191,60 @@
 <span class="w">        </span><span class="c1">-- Parameter Validation</span>
 <span class="w">        </span><span class="c1">-- =============================</span>
 
-<span class="w">        </span><span class="c1">-- Validate @invoiceNum (must be a positive integer)</span>
-<span class="w">        </span><span class="k">IF</span><span class="w"> </span><span class="o">@</span><span class="n">invoiceNum</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span>
-<span class="w">        </span><span class="k">BEGIN</span>
-<span class="w">            </span><span class="n">RAISERROR</span><span class="p">(</span><span class="s1">&#39;Invoice number must be a positive integer.&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
-<span class="w">            </span><span class="k">ROLLBACK</span><span class="w"> </span><span class="k">TRANSACTION</span><span class="p">;</span>
-<span class="w">            </span><span class="k">RETURN</span><span class="p">;</span>
-<span class="w">        </span><span class="k">END</span>
+<span class="w">        </span><span class="k">IF</span><span class="w"> </span><span class="o">@</span><span class="n">InvoiceNum</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">            </span><span class="n">THROW</span><span class="w"> </span><span class="mi">50000</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Invoice number must be a positive integer.&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 
-<span class="w">        </span><span class="c1">-- Validate @mark_point (must be a positive integer)</span>
-<span class="w">        </span><span class="k">IF</span><span class="w"> </span><span class="o">@</span><span class="n">mark_point</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span>
-<span class="w">        </span><span class="k">BEGIN</span>
-<span class="w">            </span><span class="n">RAISERROR</span><span class="p">(</span><span class="s1">&#39;Mark point identifier must be a positive integer.&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
-<span class="w">            </span><span class="k">ROLLBACK</span><span class="w"> </span><span class="k">TRANSACTION</span><span class="p">;</span>
-<span class="w">            </span><span class="k">RETURN</span><span class="p">;</span>
-<span class="w">        </span><span class="k">END</span>
+<span class="w">        </span><span class="k">IF</span><span class="w"> </span><span class="o">@</span><span class="n">MarkPoint</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">            </span><span class="n">THROW</span><span class="w"> </span><span class="mi">50000</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Mark point identifier must be a positive integer.&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 
-<span class="w">        </span><span class="c1">-- Validate @line_num (must be a positive number)</span>
-<span class="w">        </span><span class="k">IF</span><span class="w"> </span><span class="o">@</span><span class="n">line_num</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span>
-<span class="w">        </span><span class="k">BEGIN</span>
-<span class="w">            </span><span class="n">RAISERROR</span><span class="p">(</span><span class="s1">&#39;Line number must be a positive number.&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
-<span class="w">            </span><span class="k">ROLLBACK</span><span class="w"> </span><span class="k">TRANSACTION</span><span class="p">;</span>
-<span class="w">            </span><span class="k">RETURN</span><span class="p">;</span>
-<span class="w">        </span><span class="k">END</span>
+<span class="w">        </span><span class="k">IF</span><span class="w"> </span><span class="o">@</span><span class="n">LineNum</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">            </span><span class="n">THROW</span><span class="w"> </span><span class="mi">50000</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Line number must be a positive number.&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 
-<span class="w">        </span><span class="c1">-- Validate @pass_done (must be either 0 or 1)</span>
-<span class="w">        </span><span class="k">IF</span><span class="w"> </span><span class="o">@</span><span class="n">pass_done</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
-<span class="w">        </span><span class="k">BEGIN</span>
-<span class="w">            </span><span class="n">RAISERROR</span><span class="p">(</span><span class="s1">&#39;Pass done must be either 0 (False) or 1 (True).&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
-<span class="w">            </span><span class="k">ROLLBACK</span><span class="w"> </span><span class="k">TRANSACTION</span><span class="p">;</span>
-<span class="w">            </span><span class="k">RETURN</span><span class="p">;</span>
-<span class="w">        </span><span class="k">END</span>
+<span class="w">        </span><span class="k">IF</span><span class="w"> </span><span class="o">@</span><span class="n">PassDone</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span>
+<span class="w">            </span><span class="n">THROW</span><span class="w"> </span><span class="mi">50000</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Pass done must be either 0 (False) or 1 (True).&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 
 <span class="w">        </span><span class="c1">-- =============================</span>
 <span class="w">        </span><span class="c1">-- Locking Mechanism</span>
 <span class="w">        </span><span class="c1">-- =============================</span>
 
-<span class="w">        </span><span class="c1">-- Acquire an exclusive lock on the BKSOMARK row for the specific invoice</span>
-<span class="w">        </span><span class="c1">-- This ensures that no other transactions can insert or modify mark points for the same invoice concurrently</span>
 <span class="w">        </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">dummy</span><span class="w"> </span><span class="nb">INT</span><span class="p">;</span>
 <span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="o">@</span><span class="n">dummy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
 <span class="w">        </span><span class="k">FROM</span><span class="w"> </span><span class="n">BKSOMARK</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="p">(</span><span class="n">UPDLOCK</span><span class="p">,</span><span class="w"> </span><span class="n">HOLDLOCK</span><span class="p">)</span>
-<span class="w">        </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKSOMARK_INVNM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">invoiceNum</span><span class="p">;</span>
+<span class="w">        </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKSOMARK_INVNM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">InvoiceNum</span><span class="p">;</span>
 
 <span class="w">        </span><span class="c1">-- =============================</span>
 <span class="w">        </span><span class="c1">-- Sequential Mark Point Logging</span>
 <span class="w">        </span><span class="c1">-- =============================</span>
 
-<span class="w">        </span><span class="c1">-- Retrieve the current maximum mark point for the invoice</span>
-<span class="w">        </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">current_max_mark</span><span class="w"> </span><span class="nb">INT</span><span class="p">;</span>
-<span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="o">@</span><span class="n">current_max_mark</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">MAX</span><span class="p">(</span><span class="n">BKSOMARK_MARK</span><span class="p">)</span>
+<span class="w">        </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">CurrentMaxMark</span><span class="w"> </span><span class="nb">INT</span><span class="p">;</span>
+<span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="o">@</span><span class="n">CurrentMaxMark</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">MAX</span><span class="p">(</span><span class="n">BKSOMARK_MARK</span><span class="p">)</span>
 <span class="w">        </span><span class="k">FROM</span><span class="w"> </span><span class="n">BKSOMARK</span>
-<span class="w">        </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKSOMARK_INVNM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">invoiceNum</span><span class="p">;</span>
+<span class="w">        </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKSOMARK_INVNM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">InvoiceNum</span><span class="p">;</span>
 
-<span class="w">        </span><span class="c1">-- Ensure that the new mark_point is greater than the current maximum to maintain order</span>
-<span class="w">        </span><span class="k">IF</span><span class="w"> </span><span class="o">@</span><span class="n">current_max_mark</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="o">@</span><span class="n">mark_point</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="o">@</span><span class="n">current_max_mark</span>
-<span class="w">        </span><span class="k">BEGIN</span>
-<span class="w">            </span><span class="n">RAISERROR</span><span class="p">(</span><span class="s1">&#39;Mark point identifier must be greater than the existing maximum mark point for the invoice.&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
-<span class="w">            </span><span class="k">ROLLBACK</span><span class="w"> </span><span class="k">TRANSACTION</span><span class="p">;</span>
-<span class="w">            </span><span class="k">RETURN</span><span class="p">;</span>
-<span class="w">        </span><span class="k">END</span>
+<span class="w">        </span><span class="k">IF</span><span class="w"> </span><span class="o">@</span><span class="n">CurrentMaxMark</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="o">@</span><span class="n">MarkPoint</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="o">@</span><span class="n">CurrentMaxMark</span>
+<span class="w">            </span><span class="n">THROW</span><span class="w"> </span><span class="mi">50000</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Mark point identifier must be greater than the existing maximum mark point for the invoice.&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 
 <span class="w">        </span><span class="c1">-- =============================</span>
 <span class="w">        </span><span class="c1">-- Insert or Update Mark Point</span>
 <span class="w">        </span><span class="c1">-- =============================</span>
 
+<span class="w">        </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">CurrentDate</span><span class="w"> </span><span class="nb">DATE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">CAST</span><span class="p">(</span><span class="n">GETDATE</span><span class="p">()</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="nb">DATE</span><span class="p">);</span>
+
 <span class="w">        </span><span class="k">IF</span><span class="w"> </span><span class="k">EXISTS</span><span class="w"> </span><span class="p">(</span>
 <span class="w">            </span><span class="k">SELECT</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>
 <span class="w">            </span><span class="k">FROM</span><span class="w"> </span><span class="n">BKSOMARK</span>
-<span class="w">            </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKSOMARK_INVNM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">invoiceNum</span>
+<span class="w">            </span><span class="k">WHERE</span><span class="w"> </span><span class="n">BKSOMARK_INVNM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">InvoiceNum</span>
 <span class="w">        </span><span class="p">)</span>
 <span class="w">        </span><span class="k">BEGIN</span>
 <span class="w">            </span><span class="c1">-- Update existing row with the new mark point</span>
 <span class="w">            </span><span class="k">UPDATE</span><span class="w"> </span><span class="n">BKSOMARK</span>
 <span class="w">            </span><span class="k">SET</span><span class="w"> </span>
-<span class="w">                </span><span class="n">BKSOMARK_MARK</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">mark_point</span><span class="p">,</span>
-<span class="w">                </span><span class="n">BKSOMARK_LINE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">line_num</span><span class="p">,</span>
-<span class="w">                </span><span class="n">BKSOMARK_DONE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">pass_done</span><span class="p">,</span>
-<span class="w">                </span><span class="n">BKSOMARK_DATE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">CAST</span><span class="p">(</span><span class="n">GETDATE</span><span class="p">()</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="nb">DATE</span><span class="p">)</span>
+<span class="w">                </span><span class="n">BKSOMARK_MARK</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">MarkPoint</span><span class="p">,</span>
+<span class="w">                </span><span class="n">BKSOMARK_LINE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">LineNum</span><span class="p">,</span>
+<span class="w">                </span><span class="n">BKSOMARK_DONE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">PassDone</span><span class="p">,</span>
+<span class="w">                </span><span class="n">BKSOMARK_DATE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">CurrentDate</span>
 <span class="w">            </span><span class="k">WHERE</span><span class="w"> </span>
-<span class="w">                </span><span class="n">BKSOMARK_INVNM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">invoiceNum</span><span class="p">;</span>
+<span class="w">                </span><span class="n">BKSOMARK_INVNM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">@</span><span class="n">InvoiceNum</span><span class="p">;</span>
 <span class="w">        </span><span class="k">END</span>
 <span class="w">        </span><span class="k">ELSE</span>
 <span class="w">        </span><span class="k">BEGIN</span>
@@ -282,11 +257,11 @@
 <span class="w">                </span><span class="n">BKSOMARK_DATE</span>
 <span class="w">            </span><span class="p">)</span>
 <span class="w">            </span><span class="k">VALUES</span><span class="w"> </span><span class="p">(</span>
-<span class="w">                </span><span class="o">@</span><span class="n">invoiceNum</span><span class="p">,</span>
-<span class="w">                </span><span class="o">@</span><span class="n">mark_point</span><span class="p">,</span>
-<span class="w">                </span><span class="o">@</span><span class="n">line_num</span><span class="p">,</span>
-<span class="w">                </span><span class="o">@</span><span class="n">pass_done</span><span class="p">,</span>
-<span class="w">                </span><span class="k">CAST</span><span class="p">(</span><span class="n">GETDATE</span><span class="p">()</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="nb">DATE</span><span class="p">)</span>
+<span class="w">                </span><span class="o">@</span><span class="n">InvoiceNum</span><span class="p">,</span>
+<span class="w">                </span><span class="o">@</span><span class="n">MarkPoint</span><span class="p">,</span>
+<span class="w">                </span><span class="o">@</span><span class="n">LineNum</span><span class="p">,</span>
+<span class="w">                </span><span class="o">@</span><span class="n">PassDone</span><span class="p">,</span>
+<span class="w">                </span><span class="o">@</span><span class="n">CurrentDate</span>
 <span class="w">            </span><span class="p">);</span>
 <span class="w">        </span><span class="k">END</span>
 
@@ -302,23 +277,13 @@
 <span class="w">        </span><span class="c1">-- Error Handling</span>
 <span class="w">        </span><span class="c1">-- =============================</span>
 
-<span class="w">        </span><span class="c1">-- Rollback the transaction if it&#39;s still active</span>
 <span class="w">        </span><span class="k">IF</span><span class="w"> </span><span class="n">XACT_STATE</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="mi">0</span>
 <span class="w">            </span><span class="k">ROLLBACK</span><span class="w"> </span><span class="k">TRANSACTION</span><span class="p">;</span>
 
-<span class="w">        </span><span class="c1">-- Retrieve error information</span>
 <span class="w">        </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">ErrorMessage</span><span class="w"> </span><span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">4000</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ERROR_MESSAGE</span><span class="p">();</span>
 <span class="w">        </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">ErrorSeverity</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ERROR_SEVERITY</span><span class="p">();</span>
 <span class="w">        </span><span class="k">DECLARE</span><span class="w"> </span><span class="o">@</span><span class="n">ErrorState</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ERROR_STATE</span><span class="p">();</span>
 
-<span class="w">        </span><span class="c1">-- Optionally, log the error to an ErrorLog table</span>
-<span class="w">        </span><span class="c1">-- Uncomment and modify the following lines if an ErrorLog table exists</span>
-<span class="w">        </span><span class="cm">/*</span>
-<span class="cm">        INSERT INTO dbo.ErrorLog (ErrorMessage, ErrorSeverity, ErrorState, ErrorTime)</span>
-<span class="cm">        VALUES (@ErrorMessage, @ErrorSeverity, @ErrorState, GETDATE());</span>
-<span class="cm">        */</span>
-
-<span class="w">        </span><span class="c1">-- Re-raise the error to the calling environment</span>
 <span class="w">        </span><span class="n">RAISERROR</span><span class="w"> </span><span class="p">(</span><span class="o">@</span><span class="n">ErrorMessage</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">ErrorSeverity</span><span class="p">,</span><span class="w"> </span><span class="o">@</span><span class="n">ErrorState</span><span class="p">);</span>
 <span class="w">    </span><span class="k">END</span><span class="w"> </span><span class="n">CATCH</span>
 <span class="k">END</span><span class="p">;</span>

@@ -59,9 +59,6 @@ BEGIN
     -- Markpoint 6 after successful posting
     EXEC markpoint_6_SaveToGL @invoiceNum, 1;
 
-    -- Update status
-    EXEC post_status;
-
     RETURN 0;
 END
 GO
@@ -89,9 +86,6 @@ GO
 
 6. **Markpoint 6 Execution**:
    - The system executes `markpoint_6_SaveToGL` both before and after the posting action to indicate when the general ledger updates occur.
-
-7. **Post Status**:
-   - After the posting is successful, the function calls `post_status` to ensure the status is updated correctly.
 
 ### Error Handling:
 - If no valid customer class is found or the fuel amount is `0`, the function returns early without posting any fuel charges.

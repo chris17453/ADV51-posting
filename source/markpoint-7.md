@@ -99,8 +99,6 @@ BEGIN
         END
     END
 
-    -- Update post status
-    EXEC post_status;
 
     RETURN 0;
 END
@@ -127,9 +125,6 @@ GO
 
 5. **Markpoint 7 Execution**:
    - The system executes `markpoint_7_SaveToInventory` both before and after updating the inventory location to indicate when the updates occur.
-
-6. **Post Status**:
-   - After completing the inventory updates, the function calls `post_status` to ensure the status is updated correctly.
 
 ### Error Handling:
 - If the product is non-inventory (`BKIC_PROD_TYPE = 'N'`) or if the product code is invalid, the function exits early without making any updates.
