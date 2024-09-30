@@ -11,6 +11,9 @@ The `post_so` stored procedure is designed to process sales orders by performing
 
 # Notes
 - Item quantity in BKICLOC (location/part) must be >= than what the invoice needs or it will fail. this is one of the checks.
+- posting used 2 databases, GPACIFIC and JADVDATA, the details are in the database document
+- the code will only look at the individual table, and not the database name, the databases are mapped
+
 
 
 ## SQL Code
