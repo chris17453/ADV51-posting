@@ -9,6 +9,10 @@ The `post_so` stored procedure is designed to process sales orders by performing
 - create_invoice_from_history (will allow testing with existing invoices, giving them ned Invoice Numbers and Sales Order numbers)
 - post_to_gl2 will make any Chart of account updates
 
+# Notes
+- Item quantity in BKICLOC (location/part) must be >= than what the invoice needs or it will fail. this is one of the checks.
+
+
 ## SQL Code
 Below is the updated `post_so` stored procedure incorporating the required changes:
 
